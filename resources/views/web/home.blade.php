@@ -1,4 +1,4 @@
-<x-front-layout>
+<x-front-layout title="Home">
     <!-- banner-section -->
     <section class="banner-section centred" style="background-image: url({{ asset('assets/images/banner/banner-1.jpg') }});">
         <div class="auto-container">

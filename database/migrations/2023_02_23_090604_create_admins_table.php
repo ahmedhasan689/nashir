@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('admins', function (Blueprint $table) {
             $table->id();
             $table->string('first_name');
             $table->string('last_name');
@@ -22,9 +22,9 @@ return new class extends Migration
             $table->string('phone_number');
             $table->timestamp('phone_verified_at')->nullable();
             $table->string('password');
-            $table->enum('user_type', ['advertiser', 'publisher'])->default('publisher');
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -35,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('admins');
     }
 };

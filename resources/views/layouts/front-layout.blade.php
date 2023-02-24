@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
     <title>
-        Nashir
+        {{ $title ?? 'Nashir' }}
     </title>
 
     <!-- Fav Icon -->
@@ -61,7 +61,12 @@
                             <li><a href="index-4.html"><i class="fab fa-google-plus-g"></i></a></li>
                             <li><a href="index-4.html"><i class="fab fa-vimeo-v"></i></a></li>
                         </ul>
-                        <div class="sign-in"><a href="signup.html"><i class="fas fa-user"></i>Sign In</a></div>
+                        <div class="sign-in">
+                            <a href="{{ route('login') }}">
+                                <i class="fas fa-user"></i>
+                                Sign In
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

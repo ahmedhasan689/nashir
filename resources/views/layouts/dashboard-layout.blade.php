@@ -90,7 +90,11 @@ License: For each use you must have a valid license purchased only from above li
                 <!--end::Brand-->
 
                 {{-- Start Nav Bar --}}
-                <x-admin-nav />
+                @auth('admin')
+                    <x-admin-nav />
+                @else
+                    <x-user-nav />
+                @endauth
                 {{-- Start Nav Bar --}}
 
             </div>
@@ -189,12 +193,13 @@ License: For each use you must have a valid license purchased only from above li
                                                     <!--begin::Username-->
                                                     <div class="d-flex flex-column">
                                                         <div class="fw-bolder d-flex align-items-center fs-5">
-                                                            Max Smith
+                                                            {{ auth()->user()->first_name . ' ' . auth()->user()->last_name }}
                                                             <span
                                                                 class="badge badge-light-success fw-bolder fs-8 px-2 py-1 ms-2">Pro</span>
                                                         </div>
-                                                        <a href="#"
-                                                            class="fw-bold text-muted text-hover-primary fs-7">max@kt.com</a>
+                                                        <a href="#" class="fw-bold text-muted text-hover-primary fs-7">
+                                                            {{ auth()->user()->email }}
+                                                        </a>
                                                     </div>
                                                     <!--end::Username-->
                                                 </div>
@@ -265,8 +270,12 @@ License: For each use you must have a valid license purchased only from above li
                                             <!--end::Menu item-->
                                             <!--begin::Menu item-->
                                             <div class="menu-item px-5">
-                                                <a href="authentication/flows/basic/sign-in.html"
-                                                    class="menu-link px-5">Sign Out</a>
+                                                <form action="{{ route('logout') }}" method="POST">
+                                                    @csrf
+
+                                                    <button type="submit" style="border: none; background-color: transparent; width: 100%;" href="authentication/flows/basic/sign-in.html"
+                                                        class="menu-link px-5">Sign Out</button>
+                                                </form>
                                             </div>
                                             <!--end::Menu item-->
                                         </div>
@@ -361,19 +370,24 @@ License: For each use you must have a valid license purchased only from above li
     <!--end::Main-->
     <!--begin::Javascript-->
     <!--begin::Global Javascript Bundle(used by all pages)-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="{{ asset('dashboard_assets/plugins/global/plugins.bundle.js') }}"></script>
     <script src="{{ asset('dashboard_assets/js/scripts.bundle.js') }}"></script>
     <!--end::Global Javascript Bundle-->
+    <script src="{{ asset('dashboard_assets//plugins/custom/datatables/datatables.bundle.js') }}"></script>
     <!--begin::Page Vendors Javascript(used by this page)-->
     <script src="{{ asset('dashboard_assets/plugins/custom/fullcalendar/fullcalendar.bundle.js') }}"></script>
     <!--end::Page Vendors Javascript-->
     <!--begin::Page Custom Javascript(used by this page)-->
-    <script src="{{ asset('dsahboard_assets/js/custom/widgets.js') }}"></script>
-    <script src="{{ asset('dsahboard_assets/js/custom/apps/chat/chat.js') }}"></script>
-    <script src="{{ asset('dsahboard_assets/js/custom/modals/create-app.js') }}"></script>
-    <script src="{{ asset('dsahboard_assets/js/custom/modals/upgrade-plan.js') }}"></script>
+    <script src="{{ asset('dashboard_assets/js/custom/widgets.js') }}"></script>
+    <script src="{{ asset('dashboard_assets/js/custom/apps/chat/chat.js') }}"></script>
+    <script src="{{ asset('dashboard_assets/js/custom/modals/create-app.js') }}"></script>
+    <script src="{{ asset('dashboard_assets/js/custom/modals/upgrade-plan.js') }}"></script>
+
     <!--end::Page Custom Javascript-->
     <!--end::Javascript-->
+
+    @stack('js')
 </body>
 <!--end::Body-->
 

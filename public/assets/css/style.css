@@ -1,4 +1,4 @@
- 
+
 /* Css For Clasifico */
 
 /************ TABLE OF CONTENTS ***************
@@ -44,7 +44,7 @@
 
 
 
-/*** 
+/***
 
 ====================================================================
   Reset
@@ -59,7 +59,7 @@
 }
 
 
-/*** 
+/***
 
 ====================================================================
   Global Settings
@@ -142,7 +142,7 @@ input,button,select,textarea{
 ul,li{
   list-style:none;
   padding:0px;
-  margin:0px; 
+  margin:0px;
 }
 
 input{
@@ -176,7 +176,7 @@ h1,h2,h3,h4,h5,h6{
 }
 
 .preloader{
-  position: fixed; 
+  position: fixed;
   left:0px;
   top:0px;
   height:100%;
@@ -413,7 +413,7 @@ img {
 
 
 
-/*** 
+/***
 
 ====================================================================
                         Home-Page-One
@@ -556,7 +556,7 @@ img {
 
 .main-menu .navigation > li.current > a,
 .main-menu .navigation > li:hover > a{
-  
+
 }
 
 .main-menu .navigation > li.dropdown > a:before {
@@ -599,7 +599,7 @@ img {
 
 .main-menu .navigation > li > ul.from-right{
   left:auto;
-  right:0px;  
+  right:0px;
 }
 
 .main-menu .navigation > li > ul > li{
@@ -662,7 +662,7 @@ img {
 }
 
 .main-menu .navigation > li > ul > li:last-child{
-  border-bottom:none; 
+  border-bottom:none;
 }
 
 .main-menu .navigation > li > ul > li > a,
@@ -706,7 +706,7 @@ img {
   font-size:16px;
   font-weight:800;
   text-align:center;
-  z-index:5;  
+  z-index:5;
 }
 
 .main-menu .navigation > li > ul > li > ul{
@@ -734,7 +734,7 @@ img {
 
 .main-menu .navigation > li > ul > li > ul.from-right{
   left:auto;
-  right:0px;  
+  right:0px;
 }
 
 .main-menu .navigation > li > ul > li > ul > li{
@@ -783,11 +783,11 @@ img {
 }
 
 .main-menu .navigation > li > ul > li > ul > li:last-child{
-  border-bottom:none; 
+  border-bottom:none;
 }
 
 .main-menu .navigation > li > ul > li > ul > li:last-child{
-  border-bottom:none; 
+  border-bottom:none;
 }
 
 .main-menu .navigation > li > ul > li > ul > li > a{
@@ -812,7 +812,7 @@ img {
 }
 
 .main-menu .navigation > li > ul > li > ul > li > a:hover{
-  
+
 }
 
 .main-menu .navigation > li > ul > li > ul > li.dropdown > a:after{
@@ -825,7 +825,7 @@ img {
   line-height:24px;
   font-size:16px;
   font-weight:900;
-  z-index:5;  
+  z-index:5;
 }
 
 .main-menu .navigation > li.dropdown:hover > ul,
@@ -844,7 +844,7 @@ img {
   filter: alpha(opacity=100);
   top: 0%;
   -webkit-transform: rotateX(0);
-  transform: rotateX(0); 
+  transform: rotateX(0);
 }
 
 .main-menu .navigation li.dropdown .dropdown-btn{
@@ -865,7 +865,7 @@ img {
 
 .main-menu .navigation li.current.dropdown .dropdown-btn,
 .main-menu .navigation li:hover .dropdown-btn{
-  
+
 }
 
 .main-menu .navigation li.dropdown ul li.dropdown .dropdown-btn{
@@ -956,13 +956,13 @@ img {
 }
 
 .mobile-menu .navbar-collapse{
-  display:block !important; 
+  display:block !important;
 }
 
 .mobile-menu .nav-logo{
   position:relative;
   padding:50px 25px;
-  text-align:left;  
+  text-align:left;
   padding-bottom: 100px;
 }
 
@@ -1102,7 +1102,7 @@ img {
   -moz-transition: all 500ms ease;
   -ms-transition: all 500ms ease;
   -o-transition: all 500ms ease;
-  transition: all 500ms ease; 
+  transition: all 500ms ease;
 }
 
 .mobile-menu .navigation li ul li > a{
@@ -1122,7 +1122,7 @@ img {
   -moz-transition: all 500ms ease;
   -ms-transition: all 500ms ease;
   -o-transition: all 500ms ease;
-  transition: all 500ms ease; 
+  transition: all 500ms ease;
 }
 
 .mobile-menu .navigation li.current > a:before{
@@ -1146,16 +1146,16 @@ img {
   -moz-transition: all 500ms ease;
   -ms-transition: all 500ms ease;
   -o-transition: all 500ms ease;
-  transition: all 500ms ease; 
+  transition: all 500ms ease;
   z-index:5;
 }
 
 .mobile-menu .navigation li.dropdown .dropdown-btn.open{
-  background:#fff; 
+  background:#fff;
   color: #3b3b3b;
   -webkit-transform:rotate(90deg);
   -ms-transform:rotate(90deg);
-  transform:rotate(90deg);  
+  transform:rotate(90deg);
 }
 
 .mobile-menu .navigation li > ul,
@@ -1184,11 +1184,11 @@ img {
   -moz-transition: all 500ms ease;
   -ms-transition: all 500ms ease;
   -o-transition: all 500ms ease;
-  transition: all 500ms ease; 
+  transition: all 500ms ease;
 }
 
 .mobile-menu .social-links li a:hover{
-  
+
 }
 
 div#mCSB_1_container{
@@ -1221,7 +1221,7 @@ div#mCSB_1_container{
 }
 
 .mobile-menu .contact-info ul li a:hover{
-  
+
 }
 
 .mobile-menu .contact-info ul li:last-child{
@@ -2274,7 +2274,7 @@ div#mCSB_1_container{
 }
 
 .tabs-box .tab.active-tab{
-  display:block;  
+  display:block;
 }
 
 .tabs-box .tab{
@@ -3213,7 +3213,7 @@ div#mCSB_1_container{
 .footer-top .post-widget .widget-title{
   margin-bottom: 55px;
 }
- 
+
 .footer-top .contact-widget .info-list li{
   position: relative;
   display: block;
@@ -3302,7 +3302,7 @@ div#mCSB_1_container{
 }
 
 
-/*** 
+/***
 
 ====================================================================
                         Home-Page-Two
@@ -3597,7 +3597,7 @@ div#mCSB_1_container{
 }
 
 
-/*** 
+/***
 
 ====================================================================
                         Home-Page-Three
@@ -3787,7 +3787,7 @@ div#mCSB_1_container{
 
 
 
-/*** 
+/***
 
 ====================================================================
                         Home-Page-Four
@@ -4019,7 +4019,7 @@ div#mCSB_1_container{
 }
 
 
-/*** 
+/***
 
 ====================================================================
                         Home-Page-Five
@@ -4083,7 +4083,7 @@ div#mCSB_1_container{
 }
 
 
-/*** 
+/***
 
 ====================================================================
                         Home-Page-Six
@@ -4205,7 +4205,7 @@ div#mCSB_1_container{
 }
 
 
-/*** 
+/***
 
 ====================================================================
                         Category-Page
@@ -5265,7 +5265,7 @@ div#mCSB_1_container{
 }
 
 
-/*** 
+/***
 
 ====================================================================
                         About-Page
@@ -5489,7 +5489,7 @@ div#mCSB_1_container{
 }
 
 
-/*** 
+/***
 
 ====================================================================
                         Stores-Page
@@ -5592,7 +5592,7 @@ div#mCSB_1_container{
 }
 
 .stores-block-one .inner-box h4 a:hover{
-  
+
 }
 
 .stores-block-one .inner-box .rating li{
@@ -5791,19 +5791,19 @@ div#mCSB_1_container{
 }
 
 .default-sidebar .about-store .content-box .social-links li:nth-child(2) a{
-  
+
 }
 
 .default-sidebar .about-store .content-box .social-links li:nth-child(3) a{
-  
+
 }
 
 .default-sidebar .about-store .content-box .social-links li:nth-child(4) a{
-  
+
 }
 
 .default-sidebar .about-store .content-box .social-links li:last-child a{
-  
+
 }
 
 .default-sidebar .map-widget .contact-map{
@@ -5846,7 +5846,7 @@ div#mCSB_1_container{
 }
 
 
-/*** 
+/***
 
 ====================================================================
                         Faq-Page
@@ -5894,7 +5894,7 @@ div#mCSB_1_container{
 }
 
 .accordion-box .block .acc-content.current{
-  display:block;  
+  display:block;
 }
 
 .accordion-box .block .acc-btn .icon-outer{
@@ -6115,13 +6115,14 @@ div#mCSB_1_container{
 
 .login-section .inner-container .inner-box form .form-group input[type='text'],
 .login-section .inner-container .inner-box form .form-group input[type='email'],
-.login-section .inner-container .inner-box form .form-group input[type='password']{
+.login-section .inner-container .inner-box form .form-group input[type='password'],
+.login-section .inner-container .inner-box form .form-group select{
   position: relative;
   display: block;
   width: 100%;
   height: 50px;
-  border: 1px solid #e6e8e8;
-  border-radius: 30px;
+  border: 1px solid #e6e8e8 !important;
+  border-radius: 30px !important;
   font-size: 15px;
   color: #808080;
   padding: 10px 30px;
@@ -6253,7 +6254,7 @@ div#mCSB_1_container{
 }
 
 
-/*** 
+/***
 
 ====================================================================
                         Contact-Page
@@ -6463,7 +6464,7 @@ div#mCSB_1_container{
 }
 
 
-/*** 
+/***
 
 ====================================================================
                         Blog-Page
@@ -6537,19 +6538,19 @@ div#mCSB_1_container{
 }
 
 .blog-sidebar .social-box .social-links li:nth-child(2) a{
-  
+
 }
 
 .blog-sidebar .social-box .social-links li:nth-child(3) a{
-  
+
 }
 
 .blog-sidebar .social-box .social-links li:nth-child(4) a{
-  
+
 }
 
 .blog-sidebar .social-box .social-links li:last-child a{
-  
+
 }
 
 .blog-sidebar .sidebar-widget{

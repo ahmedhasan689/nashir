@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Dashboard\AdvertiserController;
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Dashboard\PublisherController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,13 +18,44 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('web.home');
-});
+})->name('home');
 
 
 require __DIR__ . '/auth.php';
 
-Route::prefix('dashboard')->group(function () {
 
-    // Index Dashboard
-    Route::get('/', [DashboardController::class, 'index'])->name('dashboard.home');
+// Index Dashboard
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth:admin,web'])->name('dashboard.home');
+
+Route::middleware(['auth:admin'])->prefix('dashboard')->group(function () {
+
+    // Start Advertiser Route
+    Route::controller(AdvertiserController::class)
+        ->prefix('advertisers')
+        ->as('advertiser.')
+        ->group(function() {
+            Route::get('/', 'index')->name('index');
+            Route::get('/create', 'create')->name('create');
+            Route::post('/', 'store')->name('store');
+            Route::get('/{id}/edit', 'edit')->name('edit');
+            Route::put('/{id}', 'update')->name('update');
+            Route::get('/delete', 'destroy')->name('delete');
+        });
+    // End Advertiser Route
+
+    // Start Publisher Route
+    Route::controller(PublisherController::class)
+        ->prefix('publishers')
+        ->as('publisher.')
+        ->group(function() {
+            Route::get('/', 'index')->name('index');
+            Route::get('/create', 'create')->name('create');
+            Route::post('/', 'store')->name('store');
+            Route::get('/{id}/edit', 'edit')->name('edit');
+            Route::put('/{id}', 'update')->name('update');
+            Route::get('/delete', 'destroy')->name('delete');
+        });
+    // End Publisher Route
+
+    
 });
