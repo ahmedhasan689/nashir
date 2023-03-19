@@ -1,4 +1,4 @@
-<x-dashboard-layout title="Create Publisher" subTitle="Create">
+<x-dashboard-layout title="Create Advertiser" subTitle="Create">
     <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
         <div class="post d-flex flex-column-fluid" id="kt_post">
             <!--begin::Container-->

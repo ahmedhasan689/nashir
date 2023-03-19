@@ -110,7 +110,7 @@
                     </div>
 
                     <div class="menu-item">
-                        <a class="menu-link" href="{{ route('advertiser.create') }}">
+                        <a class="menu-link" href="{{ route('publisher.create') }}">
                             <span class="menu-bullet">
                                 <span class="bullet bullet-dot"></span>
                             </span>
@@ -120,26 +120,151 @@
                 </div>
             </div>
 
-            <div class="menu-item">
-                <a class="menu-link" href="apps/calendar.html">
+            <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                <span class="menu-link">
                     <span class="menu-icon">
-                        <!--begin::Svg Icon | path: icons/duotone/Interface/Calendar.svg-->
+                        <!--begin::Svg Icon | path: icons/duotone/Layout/Layout-4-blocks.svg-->
                         <span class="svg-icon svg-icon-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none">
-                                <path opacity="0.25" fill-rule="evenodd" clip-rule="evenodd"
-                                    d="M6 3C6 2.44772 6.44772 2 7 2C7.55228 2 8 2.44772 8 3V4H16V3C16 2.44772 16.4477 2 17 2C17.5523 2 18 2.44772 18 3V4H19C20.6569 4 22 5.34315 22 7V19C22 20.6569 20.6569 22 19 22H5C3.34315 22 2 20.6569 2 19V7C2 5.34315 3.34315 4 5 4H6V3Z"
-                                    fill="#191213" />
-                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                    d="M10 12C9.44772 12 9 12.4477 9 13C9 13.5523 9.44772 14 10 14H17C17.5523 14 18 13.5523 18 13C18 12.4477 17.5523 12 17 12H10ZM7 16C6.44772 16 6 16.4477 6 17C6 17.5523 6.44772 18 7 18H13C13.5523 18 14 17.5523 14 17C14 16.4477 13.5523 16 13 16H7Z"
-                                    fill="#121319" />
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <rect x="0" y="0" width="24" height="24" />
+                                    <rect fill="#000000" x="4" y="4" width="7" height="7"
+                                          rx="1.5" />
+                                    <path
+                                        d="M5.5,13 L9.5,13 C10.3284271,13 11,13.6715729 11,14.5 L11,18.5 C11,19.3284271 10.3284271,20 9.5,20 L5.5,20 C4.67157288,20 4,19.3284271 4,18.5 L4,14.5 C4,13.6715729 4.67157288,13 5.5,13 Z M14.5,4 L18.5,4 C19.3284271,4 20,4.67157288 20,5.5 L20,9.5 C20,10.3284271 19.3284271,11 18.5,11 L14.5,11 C13.6715729,11 13,10.3284271 13,9.5 L13,5.5 C13,4.67157288 13.6715729,4 14.5,4 Z M14.5,13 L18.5,13 C19.3284271,13 20,13.6715729 20,14.5 L20,18.5 C20,19.3284271 19.3284271,20 18.5,20 L14.5,20 C13.6715729,20 13,19.3284271 13,18.5 L13,14.5 C13,13.6715729 13.6715729,13 14.5,13 Z"
+                                        fill="#000000" opacity="0.3" />
+                                </g>
                             </svg>
                         </span>
                         <!--end::Svg Icon-->
                     </span>
-                    <span class="menu-title">Calendar</span>
-                </a>
+                    <span class="menu-title">Countries</span>
+                    <span class="menu-arrow"></span>
+                </span>
+                <div class="menu-sub menu-sub-accordion menu-active-bg">
+                    <div class="menu-item">
+                        <a class="menu-link" href="{{ route('country.index') }}">
+                            <span class="menu-bullet">
+                                <span class="bullet bullet-dot"></span>
+                            </span>
+                            <span class="menu-title">Countries Lists</span>
+                        </a>
+                    </div>
+                </div>
             </div>
+
+            <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                <span class="menu-link">
+                    <span class="menu-icon">
+                        <!--begin::Svg Icon | path: icons/duotone/Layout/Layout-4-blocks.svg-->
+                        <span class="svg-icon svg-icon-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <rect x="0" y="0" width="24" height="24" />
+                                    <rect fill="#000000" x="4" y="4" width="7" height="7"
+                                          rx="1.5" />
+                                    <path
+                                        d="M5.5,13 L9.5,13 C10.3284271,13 11,13.6715729 11,14.5 L11,18.5 C11,19.3284271 10.3284271,20 9.5,20 L5.5,20 C4.67157288,20 4,19.3284271 4,18.5 L4,14.5 C4,13.6715729 4.67157288,13 5.5,13 Z M14.5,4 L18.5,4 C19.3284271,4 20,4.67157288 20,5.5 L20,9.5 C20,10.3284271 19.3284271,11 18.5,11 L14.5,11 C13.6715729,11 13,10.3284271 13,9.5 L13,5.5 C13,4.67157288 13.6715729,4 14.5,4 Z M14.5,13 L18.5,13 C19.3284271,13 20,13.6715729 20,14.5 L20,18.5 C20,19.3284271 19.3284271,20 18.5,20 L14.5,20 C13.6715729,20 13,19.3284271 13,18.5 L13,14.5 C13,13.6715729 13.6715729,13 14.5,13 Z"
+                                        fill="#000000" opacity="0.3" />
+                                </g>
+                            </svg>
+                        </span>
+                        <!--end::Svg Icon-->
+                    </span>
+                    <span class="menu-title">Categories</span>
+                    <span class="menu-arrow"></span>
+                </span>
+                <div class="menu-sub menu-sub-accordion menu-active-bg">
+                    <div class="menu-item">
+                        <a class="menu-link" href="{{ route('category_dashboard.index') }}">
+                            <span class="menu-bullet">
+                                <span class="bullet bullet-dot"></span>
+                            </span>
+                            <span class="menu-title">Categories Lists</span>
+                        </a>
+                    </div>
+
+                    <div class="menu-item">
+                        <a class="menu-link" href="{{ route('category_dashboard.create') }}">
+                            <span class="menu-bullet">
+                                <span class="bullet bullet-dot"></span>
+                            </span>
+                            <span class="menu-title">Create Category</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                <span class="menu-link">
+                    <span class="menu-icon">
+                        <!--begin::Svg Icon | path: icons/duotone/Layout/Layout-4-blocks.svg-->
+                        <span class="svg-icon svg-icon-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <rect x="0" y="0" width="24" height="24" />
+                                    <rect fill="#000000" x="4" y="4" width="7" height="7"
+                                          rx="1.5" />
+                                    <path
+                                        d="M5.5,13 L9.5,13 C10.3284271,13 11,13.6715729 11,14.5 L11,18.5 C11,19.3284271 10.3284271,20 9.5,20 L5.5,20 C4.67157288,20 4,19.3284271 4,18.5 L4,14.5 C4,13.6715729 4.67157288,13 5.5,13 Z M14.5,4 L18.5,4 C19.3284271,4 20,4.67157288 20,5.5 L20,9.5 C20,10.3284271 19.3284271,11 18.5,11 L14.5,11 C13.6715729,11 13,10.3284271 13,9.5 L13,5.5 C13,4.67157288 13.6715729,4 14.5,4 Z M14.5,13 L18.5,13 C19.3284271,13 20,13.6715729 20,14.5 L20,18.5 C20,19.3284271 19.3284271,20 18.5,20 L14.5,20 C13.6715729,20 13,19.3284271 13,18.5 L13,14.5 C13,13.6715729 13.6715729,13 14.5,13 Z"
+                                        fill="#000000" opacity="0.3" />
+                                </g>
+                            </svg>
+                        </span>
+                        <!--end::Svg Icon-->
+                    </span>
+                    <span class="menu-title">Advertisements</span>
+                    <span class="menu-arrow"></span>
+                </span>
+                <div class="menu-sub menu-sub-accordion menu-active-bg">
+                    <div class="menu-item">
+                        <a class="menu-link" href="{{ route('advertisement_dashboard.index', ['status' => 'under_review']) }}">
+                            <span class="menu-bullet">
+                                <span class="bullet bullet-dot"></span>
+                            </span>
+                            <span class="menu-title">
+                                Under Review List
+                            </span>
+                        </a>
+                    </div>
+
+                    <div class="menu-item">
+                        <a class="menu-link" href="{{ route('advertisement_dashboard.index', ['status' => 'accepted']) }}">
+                            <span class="menu-bullet">
+                                <span class="bullet bullet-dot"></span>
+                            </span>
+                            <span class="menu-title">
+                                Accepted List
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="menu-item">
+            <a class="menu-link" href="apps/calendar.html">
+                <span class="menu-icon">
+                    <!--begin::Svg Icon | path: icons/duotone/Interface/Calendar.svg-->
+                    <span class="svg-icon svg-icon-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none">
+                            <path opacity="0.25" fill-rule="evenodd" clip-rule="evenodd"
+                                d="M6 3C6 2.44772 6.44772 2 7 2C7.55228 2 8 2.44772 8 3V4H16V3C16 2.44772 16.4477 2 17 2C17.5523 2 18 2.44772 18 3V4H19C20.6569 4 22 5.34315 22 7V19C22 20.6569 20.6569 22 19 22H5C3.34315 22 2 20.6569 2 19V7C2 5.34315 3.34315 4 5 4H6V3Z"
+                                fill="#191213" />
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M10 12C9.44772 12 9 12.4477 9 13C9 13.5523 9.44772 14 10 14H17C17.5523 14 18 13.5523 18 13C18 12.4477 17.5523 12 17 12H10ZM7 16C6.44772 16 6 16.4477 6 17C6 17.5523 6.44772 18 7 18H13C13.5523 18 14 17.5523 14 17C14 16.4477 13.5523 16 13 16H7Z"
+                                fill="#121319" />
+                        </svg>
+                    </span>
+                    <!--end::Svg Icon-->
+                </span>
+                <span class="menu-title">Calendar</span>
+            </a>
         </div>
         <!--end::Menu-->
     </div>

@@ -10,7 +10,7 @@ Dribbble: www.dribbble.com/keenthemes
 Like: www.facebook.com/keenthemes
 License: For each use you must have a valid license purchased only from above link in order to legally use the theme for your project.
 -->
-<html lang="en">
+<html lang="{{ app()->getLocale() == 'ar' ? "ar" : "en" }}" dir="{{ app()->getLocale() == 'ar' ? "rtl" : "ltr" }}">
 <!--begin::Head-->
 
 <head>
@@ -25,7 +25,7 @@ License: For each use you must have a valid license purchased only from above li
         content="Metronic, bootstrap, bootstrap 5, Angular 11, VueJs, React, Laravel, admin themes, web design, figma, web development, ree admin themes, bootstrap admin, bootstrap dashboard" />
     <link rel="canonical" href="Https://preview.keenthemes.com/metronic8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="shortcut icon" href="assets/media/logos/favicon.ico" />
+    <link rel="shortcut icon" href="{{ asset('dashboard_assets/media/logos/favicon.ico') }}" />
     <!--begin::Fonts-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
     <!--end::Fonts-->
@@ -35,14 +35,17 @@ License: For each use you must have a valid license purchased only from above li
     <!--end::Page Vendor Stylesheets-->
     <!--begin::Global Stylesheets Bundle(used by all pages)-->
     <link href="{{ asset('dashboard_assets/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('dashboard_assets/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
+    @if( app()->getLocale() == 'en' )
+        <link href="{{ asset('dashboard_assets/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
+    @else
+        <link href="{{ asset('dashboard_assets/css/style.bundle.rtl.css') }}" rel="stylesheet" type="text/css" />
+    @endif
     <!--end::Global Stylesheets Bundle-->
 </head>
 <!--end::Head-->
 <!--begin::Body-->
 
-<body id="kt_body"
-    class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled toolbar-fixed toolbar-tablet-and-mobile-fixed aside-enabled aside-fixed"
+<body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled toolbar-fixed toolbar-tablet-and-mobile-fixed aside-enabled aside-fixed"
     style="--kt-toolbar-height:55px;--kt-toolbar-height-tablet-and-mobile:55px">
     <!--begin::Main-->
     <!--begin::Root-->
@@ -237,7 +240,7 @@ License: For each use you must have a valid license purchased only from above li
                                                 <div class="menu-sub menu-sub-dropdown w-175px py-4">
                                                     <!--begin::Menu item-->
                                                     <div class="menu-item px-3">
-                                                        <a href="account/settings.html"
+                                                        <a href="{{ LaravelLocalization::getLocalizedURL('en', null, [], true) }}"
                                                             class="menu-link d-flex px-5 active">
                                                             <span class="symbol symbol-20px me-4">
                                                                 <img class="rounded-1"
@@ -249,7 +252,7 @@ License: For each use you must have a valid license purchased only from above li
 
                                                     <!--begin::Menu item-->
                                                     <div class="menu-item px-3">
-                                                        <a href="account/settings.html" class="menu-link d-flex px-5">
+                                                        <a href="{{ LaravelLocalization::getLocalizedURL('ar', null, [], true) }}" class="menu-link d-flex px-5">
                                                             <span class="symbol symbol-20px me-4">
                                                                 <img class="rounded-1"
                                                                     src="{{ asset('dashboard_assets/media/flags/saudi-arabia.svg') }}"
@@ -383,6 +386,9 @@ License: For each use you must have a valid license purchased only from above li
     <script src="{{ asset('dashboard_assets/js/custom/apps/chat/chat.js') }}"></script>
     <script src="{{ asset('dashboard_assets/js/custom/modals/create-app.js') }}"></script>
     <script src="{{ asset('dashboard_assets/js/custom/modals/upgrade-plan.js') }}"></script>
+
+    <script src="{{ asset('dashboard_assets/plugins/custom/ckeditor/ckeditor-classic.bundle.js') }}"></script>
+
 
     <!--end::Page Custom Javascript-->
     <!--end::Javascript-->

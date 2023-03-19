@@ -1,9 +1,11 @@
 <?php
 
-use App\Http\Controllers\Dashboard\AdvertiserController;
 use App\Http\Controllers\Dashboard\DashboardController;
-use App\Http\Controllers\Dashboard\PublisherController;
+use App\Http\Controllers\Web\AdsController;
+use App\Http\Controllers\Web\CategoriesController;
+use App\Http\Controllers\Web\HomeController;
 use Illuminate\Support\Facades\Route;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,46 +18,46 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('web.home');
-})->name('home');
+//Route::get('/', function () {
+//    return view('web.home');
+//})->name('home');
 
 
 require __DIR__ . '/auth.php';
+require __DIR__ . '/dashboard.php';
+require __DIR__ . '/user.php';
 
 
-// Index Dashboard
-Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth:admin,web'])->name('dashboard.home');
+// Start Index Dashboard
+Route::get(LaravelLocalization::setLocale().'/dashboard', [DashboardController::class, 'index'])
+    ->middleware(['auth:admin,web'])
+    ->name('dashboard.home');
+// End Index Dashboard
 
-Route::middleware(['auth:admin'])->prefix('dashboard')->group(function () {
+Route::namespace('App\Http\Controllers\Web')
+    ->prefix(LaravelLocalization::setLocale())
+    ->group(function() {
 
-    // Start Advertiser Route
-    Route::controller(AdvertiserController::class)
-        ->prefix('advertisers')
-        ->as('advertiser.')
+    Route::get('/', [HomeController::class, 'index'])->name('home');
+
+    // Start Category Route
+    Route::controller(CategoriesController::class)
+        ->prefix('categories')
+        ->as('category.')
         ->group(function() {
             Route::get('/', 'index')->name('index');
-            Route::get('/create', 'create')->name('create');
-            Route::post('/', 'store')->name('store');
-            Route::get('/{id}/edit', 'edit')->name('edit');
-            Route::put('/{id}', 'update')->name('update');
-            Route::get('/delete', 'destroy')->name('delete');
+            Route::get('/{id}', 'show')->name('show');
         });
-    // End Advertiser Route
+    // End Category Route
 
-    // Start Publisher Route
-    Route::controller(PublisherController::class)
-        ->prefix('publishers')
-        ->as('publisher.')
+    // Start Category Route
+    Route::controller(AdsController::class)
+        ->prefix('ads')
+        ->as('ad.')
         ->group(function() {
             Route::get('/', 'index')->name('index');
-            Route::get('/create', 'create')->name('create');
-            Route::post('/', 'store')->name('store');
-            Route::get('/{id}/edit', 'edit')->name('edit');
-            Route::put('/{id}', 'update')->name('update');
-            Route::get('/delete', 'destroy')->name('delete');
+            Route::get('/{id}', 'show')->name('show');
         });
-    // End Publisher Route
+    // End Category Route
 
-    
 });

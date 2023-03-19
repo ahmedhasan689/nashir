@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ app()->getLocale() == 'ar' ? "ar" : "en" }}" dir="{{ app()->getLocale() == 'ar' ? "rtl" : "ltr" }}">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,7 +25,12 @@
     <link href="{{ asset('assets/css/animate.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/nice-select.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/color.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+    @if( app()->getLocale() == 'en')
+        <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+    @else
+        <link href="{{ asset('assets/css/rtl.css') }}" rel="stylesheet">
+        <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+    @endif
     <link href="{{ asset('assets/css/responsive.css') }}" rel="stylesheet">
 
 </head>
@@ -34,50 +39,27 @@
 <!-- page wrapper -->
 <body>
 
-<div class="boxed_wrapper">
+<div class="boxed_wrapper @if( app()->getLocale() == 'ar' ) rtl @endif">
 
 
-    <!-- preloader -->
-    <div class="preloader"></div>
-    <!-- preloader -->
+{{--    <!-- preloader -->--}}
+{{--    <div class="preloader"></div>--}}
+{{--    <!-- preloader -->--}}
 
 
     <!-- main header -->
-    <header class="main-header style-four">
-
-        <!-- header-top -->
-        <div class="header-top">
-            <div class="auto-container">
-                <div class="top-inner">
-                    <ul class="info-list clearfix">
-                        <li><i class="fas fa-map-marker-alt"></i>Discover St, New York, NY 10012, USA</li>
-                        <li><i class="fas fa-clock"></i>Mon - Sat  9.00 - 18.00</li>
-                        <li><i class="fas fa-phone"></i><a href="tel:2512353256">+251-235-3256</a></li>
-                    </ul>
-                    <div class="right-column clearfix">
-                        <ul class="social-links clearfix">
-                            <li><a href="index-4.html"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="index-4.html"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="index-4.html"><i class="fab fa-google-plus-g"></i></a></li>
-                            <li><a href="index-4.html"><i class="fab fa-vimeo-v"></i></a></li>
-                        </ul>
-                        <div class="sign-in">
-                            <a href="{{ route('login') }}">
-                                <i class="fas fa-user"></i>
-                                Sign In
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <header class="main-header style-three">
 
         <!-- header-lower -->
         <div class="header-lower">
             <div class="auto-container">
                 <div class="outer-box">
                     <div class="logo-box">
-                        <figure class="logo"><a href="index.html"><img src="assets/images/logo.png" alt=""></a></figure>
+                        <figure class="logo">
+                            <a href="{{ route('home') }}">
+                                <img src="{{ asset('assets/images/logo-2.png') }}" alt="">
+                            </a>
+                        </figure>
                     </div>
                     <div class="menu-area">
                         <!--Mobile Navigation Toggler-->
@@ -89,31 +71,15 @@
                         <nav class="main-menu navbar-expand-md navbar-light">
                             <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
                                 <ul class="navigation clearfix">
-                                    <li class="current dropdown"><a href="index.html">Home</a>
-                                        <ul>
-                                            <li><a href="index.html">Home Page 01</a></li>
-                                            <li><a href="index-2.html">Home Page 02</a></li>
-                                            <li><a href="index-3.html">Home Page 03</a></li>
-                                            <li><a href="index-4.html">Home Page 04</a></li>
-                                            <li><a href="index-5.html">Home Page 05</a></li>
-                                            <li><a href="index-6.html">Home Page 06</a></li>
-                                            <li><a href="index-onepage.html">OnePage Home</a></li>
-                                            <li><a href="index-rtl.html">RTL Home</a></li>
-                                            <li class="dropdown"><a href="index.html">Header Style</a>
-                                                <ul>
-                                                    <li><a href="index.html">Header Style 01</a></li>
-                                                    <li><a href="index-2.html">Header Style 02</a></li>
-                                                    <li><a href="index-3.html">Header Style 03</a></li>
-                                                    <li><a href="index-4.html">Header Style 04</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
+                                    <li >
+                                        <a href="{{ route('home') }}">
+                                            {{ __('lang.home') }}
+                                        </a>
                                     </li>
-                                    <li class="dropdown"><a href="index.html">Categories</a>
-                                        <ul>
-                                            <li><a href="category.html">All Category</a></li>
-                                            <li><a href="category-details.html">Category Details</a></li>
-                                        </ul>
+                                    <li>
+                                        <a href="{{ route('category.index') }}">
+                                            {{ __('lang.categories') }}
+                                        </a>
                                     </li>
                                     <li class="dropdown"><a href="index.html">Browse Ads</a>
                                         <ul>
@@ -171,17 +137,44 @@
                                     </li>
                                     <li class="dropdown"><a href="index.html">Blog</a>
                                         <ul>
-                                            <li><a href="blog.html">Blog Grid</a></li>
-                                            <li><a href="blog-2.html">Blog Standard</a></li>
-                                            <li><a href="blog-details.html">Blog Details</a></li>
+                                            <li>
+                                                <a href="blog.html">
+                                                    Blog Grid
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="blog-2.html">
+                                                    Blog Standard
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="blog-details.html">
+                                                    Blog Details
+                                                </a>
+                                            </li>
                                         </ul>
+                                    </li>
+                                    <li>
+                                        @if( app()->getLocale() == 'en' )
+                                            <a rel="alternate" hreflang="ar" href="{{ LaravelLocalization::getLocalizedURL('ar', null, [], true) }}">
+                                                {{ 'Arabic' }}
+                                            </a>
+                                        @else
+                                            <a rel="alternate" hreflang="en" href="{{ LaravelLocalization::getLocalizedURL('en', null, [], true) }}">
+                                                {{ 'English' }}
+                                            </a>
+                                        @endif
+{{--                                        <a href="index.html">Arabic</a>--}}
                                     </li>
                                 </ul>
                             </div>
                         </nav>
                     </div>
                     <div class="btn-box">
-                        <a href="browse-ads-details.html" class="theme-btn-one"><i class="icon-1"></i>Submit Ads</a>
+                        <a href="{{ route('login') }}" class="theme-btn-one">
+                            <i class="icon-1"></i>
+                            Login
+                        </a>
                     </div>
                 </div>
             </div>
@@ -234,7 +227,8 @@
                 </ul>
             </div>
         </nav>
-    </div><!-- End Mobile Menu -->
+    </div>
+    <!-- End Mobile Menu -->
 
     {{ $slot }}
 
@@ -352,19 +346,19 @@
 
 
 <!-- jequery plugins -->
-<script src="assets/js/jquery.js"></script>
-<script src="assets/js/popper.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/owl.js"></script>
-<script src="assets/js/wow.js"></script>
-<script src="assets/js/validation.js"></script>
-<script src="assets/js/jquery.fancybox.js"></script>
-<script src="assets/js/appear.js"></script>
-<script src="assets/js/scrollbar.js"></script>
-<script src="assets/js/jquery.nice-select.min.js"></script>
+<script src="{{ asset('assets/js/jquery.js') }}"></script>
+<script src="{{ asset('assets/js/popper.min.js') }}"></script>
+<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('assets/js/owl.js') }}"></script>
+<script src="{{ asset('assets/js/wow.js') }}"></script>
+<script src="{{ asset('assets/js/validation.js') }}"></script>
+<script src="{{ asset('assets/js/jquery.fancybox.js') }}"></script>
+<script src="{{ asset('assets/js/appear.js') }}"></script>
+<script src="{{ asset('assets/js/scrollbar.js') }}"></script>
+<script src="{{ asset('assets/js/jquery.nice-select.min.js') }}"></script>
 
 <!-- main-js -->
-<script src="assets/js/script.js"></script>
+<script src="{{ asset('assets/js/script.js') }}"></script>
 
 </body><!-- End of .page_wrapper -->
 </html>
