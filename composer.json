@@ -12,6 +12,7 @@
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
         "mcamara/laravel-localization": "^1.8",
+        "spatie/laravel-permission": "^5.9",
         "yoeunes/toastr": "^2.3"
     },
     "require-dev": {

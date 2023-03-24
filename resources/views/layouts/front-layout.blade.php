@@ -164,7 +164,6 @@
                                                 {{ 'English' }}
                                             </a>
                                         @endif
-{{--                                        <a href="index.html">Arabic</a>--}}
                                     </li>
                                 </ul>
                             </div>
@@ -193,7 +192,9 @@
                         </nav>
                     </div>
                     <div class="btn-box">
-                        <a href="browse-ads-details.html" class="theme-btn-one"><i class="icon-1"></i>Submit Ads</a>
+                        <a href="{{ route('login') }}" class="theme-btn-one"><i class="icon-1"></i>
+                            Login
+                        </a>
                     </div>
                 </div>
             </div>
