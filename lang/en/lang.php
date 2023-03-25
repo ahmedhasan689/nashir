@@ -37,4 +37,13 @@ return [
     'confirm_password' => 'Confirm Password',
     'admin_created' => 'Admin Successfully Created',
     'admin_updated' => 'Admin Successfully Updated',
+    'account' => 'Account',
+    'account_details' => 'Account Details',
+    'email_confirmation' => 'Email Confirmation',
+    'phone_confirmation' => 'Phone Confirmation',
+    'confirm_email' => 'Confirm My Email',
+    'confirm_phone' => 'Confirm My Phone',
+    'verified' => 'Verified',
+    'submit' => 'Submit',
+    'account_updated' => 'Your Data Has Been Updated'
 ];

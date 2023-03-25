@@ -29,6 +29,36 @@
                 </a>
             </div>
 
+            <div class="menu-item">
+                <div class="menu-content pt-8 pb-2">
+                    <span class="menu-section text-muted text-uppercase fs-8 ls-1">
+                        {{ __('lang.account') }}
+                    </span>
+                </div>
+            </div>
+            <div class="menu-item">
+                <a class="menu-link" href="{{ route('account.index') }}">
+                    <span class="menu-icon">
+                        <!--begin::Svg Icon | path: icons/duotone/Interface/Calendar.svg-->
+                        <span class="svg-icon svg-icon-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                 fill="none">
+                                <path opacity="0.25" fill-rule="evenodd" clip-rule="evenodd"
+                                      d="M6 3C6 2.44772 6.44772 2 7 2C7.55228 2 8 2.44772 8 3V4H16V3C16 2.44772 16.4477 2 17 2C17.5523 2 18 2.44772 18 3V4H19C20.6569 4 22 5.34315 22 7V19C22 20.6569 20.6569 22 19 22H5C3.34315 22 2 20.6569 2 19V7C2 5.34315 3.34315 4 5 4H6V3Z"
+                                      fill="#191213" />
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                      d="M10 12C9.44772 12 9 12.4477 9 13C9 13.5523 9.44772 14 10 14H17C17.5523 14 18 13.5523 18 13C18 12.4477 17.5523 12 17 12H10ZM7 16C6.44772 16 6 16.4477 6 17C6 17.5523 6.44772 18 7 18H13C13.5523 18 14 17.5523 14 17C14 16.4477 13.5523 16 13 16H7Z"
+                                      fill="#121319" />
+                            </svg>
+                        </span>
+                        <!--end::Svg Icon-->
+                    </span>
+                    <span class="menu-title">
+                        {{ __('lang.account') }}
+                    </span>
+                </a>
+            </div>
+
             @if( Auth::guard('web')->user()->user_type == 'advertiser' )
                 <div class="menu-item">
                     <div class="menu-content pt-8 pb-2">

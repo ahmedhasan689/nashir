@@ -37,4 +37,13 @@ return [
     'confirm_password' => 'تأكيد كلمة المرور',
     'admin_created' => 'تم إنشاء المسؤول بنجاح',
     'admin_updated' => 'تم تعديل المسؤول بنجاح',
+    'account' => 'الملف الشخصي',
+    'account_details' => 'بيانات الملف الشخصي',
+    'email_confirmation' => 'تأكيد البريد الإلكتروني',
+    'phone_confirmation' => 'تأكيد رقم الجوال',
+    'confirm_email' => 'تأكيد البريد الإلكتروني',
+    'confirm_phone' => 'تأكيد رقم الجوال',
+    'verified' => 'تم التأكيد',
+    'submit' => 'حفظ التغيرات',
+    'account_updated' => 'لقد تم حفظ بياناتك بنجاح',
 ];
