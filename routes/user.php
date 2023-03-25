@@ -45,7 +45,7 @@ Route::namespace('\App\Http\Controllers\User')->middleware('auth:web')
             ->as('otp.')
             ->group(function() {
                 Route::get('otps/store', 'store')->name('store');
-                Route::post('otps/verify', 'verify')->name('verify');
+                Route::get('otps/verify', 'verify')->name('verify');
             });
 
 });

@@ -86,21 +86,18 @@ class OtpController extends Controller
 
     public function verify(Request $request)
     {
-        $request->validate([
-            'phone_number' => ['required'],
-            'code' => ['required', 'int', 'size:6']
-        ]);
+        $otp = OTP::findOrFail('+'.$request->phone_number);
 
-        $otp = OTP::findOrFail($request->post('phone_number'));
 
-        if( !Hash::check($request->post('code'), $otp->code) ) {
+
+        if( !Hash::check($request->code, $otp->code) ) {
             return Response::json([
-                'message' => __('invalid_code'),
+                'error' => __('lang.invalid_code'),
             ], 422);
         }
 
         $otp->delete();
-        $user = User::query()->where('phone_number', $request->post('phone_number'))->first();
+        $user = User::query()->where('phone_number', "+".$request->phone_number)->first();
 
         $user->update([
             'phone_verified_at' => now(),

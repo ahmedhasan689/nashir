@@ -45,5 +45,12 @@ return [
     'confirm_phone' => 'Confirm My Phone',
     'verified' => 'Verified',
     'submit' => 'Submit',
-    'account_updated' => 'Your Data Has Been Updated'
+    'account_updated' => 'Your Data Has Been Updated',
+    'send_otp' => 'Send Verification Code',
+    'send_otp_body' => 'We Will Send Verification Code For Your Number : :phone_number',
+    'send' => 'Send',
+    'otp_code' => 'Verification Code',
+    'otp_code_body' => 'We have sent you a verification code, Please Enter It Here',
+    'check' => 'Check',
+    'invalid_code' => 'Invalid Code',
 ];

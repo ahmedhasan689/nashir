@@ -20,9 +20,14 @@ class AccountController extends Controller
      *
      * @return Application|Factory|View
      */
-    public function index()
+    public function index(Request $request)
     {
         $user = User::where('id', Auth::id())->first();
+
+        if( $request->ajax() ) {
+            return view('user_dashboard.account.form', compact('user'))->render();
+        }
+
         return view('user_dashboard.account.index', compact('user'));
     }
 
