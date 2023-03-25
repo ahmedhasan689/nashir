@@ -15,9 +15,6 @@
         <th class="min-w-125px">
             {{ __('lang.phone_number') }}
         </th>
-        <th class="min-w-125px">
-            {{ __('lang.role') }}
-        </th>
 
         <th class="text-end min-w-70px">
             {{ __('lang.actions') }}
@@ -58,15 +55,6 @@
                     </span>
                 </td>
                 <!--end::Email=-->
-                <!--begin::country=-->
-                <td>
-                    <span>
-                        {{ '-' }}
-                    </span>
-                </td>
-                <!--end::country=-->
-
-
 
                 <!--begin::Action=-->
                 <td class="text-end">

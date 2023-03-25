@@ -31,4 +31,10 @@ return [
     'edit_role' => 'تعديل صلاحية',
     'role_created' => 'تم إنشاء الصلاحية بنجاح',
     'role_updated' => 'تم تعديل الصلاحية بنجاح',
+    'first_name' => 'الاسم الأول',
+    'last_name' => 'الاسم الأخير',
+    'password' => 'كلمة المرور',
+    'confirm_password' => 'تأكيد كلمة المرور',
+    'admin_created' => 'تم إنشاء المسؤول بنجاح',
+    'admin_updated' => 'تم تعديل المسؤول بنجاح',
 ];

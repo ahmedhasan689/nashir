@@ -31,4 +31,10 @@ return [
     'edit_role' => 'Edit Role',
     'role_created' => 'Role Successfully Created',
     'role_updated' => 'Role Successfully Updated',
+    'first_name' => 'First Name',
+    'last_name' => 'Last Name',
+    'password' => 'Password',
+    'confirm_password' => 'Confirm Password',
+    'admin_created' => 'Admin Successfully Created',
+    'admin_updated' => 'Admin Successfully Updated',
 ];
