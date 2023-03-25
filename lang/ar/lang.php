@@ -53,4 +53,12 @@ return [
     'otp_code_body' => 'لقد قمنتا بإرسال رمز التحقق، يرجى إدخاله هنا',
     'check' => 'التحقق',
     'invalid_code' => 'رمز خاطئ',
+    'advertisers' => 'أصحاب الإعلان',
+    'publishers' => 'الناشرين',
+    'advertiser_count' => 'أكثر من :number صاحب إعلان',
+    'publisher_count' => 'أكثر من :number ناشر',
+    'advertisers_page' => 'صفحة أصحاب الإعلانات',
+    'publishers_page' => 'صفحة الناشرين',
+    'email_status' => 'تأكيد البريد الإلكتروني',
+    'phone_status' => 'تأكيد رقم الجوال',
 ];

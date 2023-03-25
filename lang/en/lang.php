@@ -53,4 +53,12 @@ return [
     'otp_code_body' => 'We have sent you a verification code, Please Enter It Here',
     'check' => 'Check',
     'invalid_code' => 'Invalid Code',
+    'advertisers' => 'Advertisers',
+    'publishers' => 'Publishers',
+    'advertiser_count' => 'Over :number Advertiser',
+    'publisher_count' => 'Over :number Publisher',
+    'advertisers_page' => 'Advertisers Page',
+    'publishers_page' => 'Publishers Page',
+    'email_status' => 'Verified Email',
+    'phone_status' => 'Verified Phone',
 ];
