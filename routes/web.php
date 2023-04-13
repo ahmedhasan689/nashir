@@ -50,7 +50,7 @@ Route::namespace('App\Http\Controllers\Web')
         });
     // End Category Route
 
-    // Start Category Route
+    // Start Ads Route
     Route::controller(AdsController::class)
         ->prefix('ads')
         ->as('ad.')
@@ -58,6 +58,6 @@ Route::namespace('App\Http\Controllers\Web')
             Route::get('/', 'index')->name('index');
             Route::get('/{id}', 'show')->name('show');
         });
-    // End Category Route
+    // End Ads Route
 
 });

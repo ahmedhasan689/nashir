@@ -67,7 +67,7 @@
                             <div class="widget-content">
                                 <ul class="category-list">
                                     <li>
-                                        <a href="category-details.html">
+                                        <a href="#">
                                             All
                                         </a>
                                     </li>
@@ -78,16 +78,8 @@
                                             </a>
                                         </li>
                                     @endforeach
-
                                 </ul>
                             </div>
-{{--                            <div class="price-range mt-4">--}}
-
-{{--                                <div class="col-lg-12 col-md-12 col-sm-12 form-group">--}}
-{{--                                    <button type="submit" class="theme-btn-one">Apply price</button>--}}
-{{--                                </div>--}}
-
-{{--                            </div>--}}
 
                         </div>
                     </div>
@@ -97,7 +89,8 @@
                         <div class="item-shorting clearfix">
                             <div class="text pull-left">
                                 <p>
-                                    <span>Search Reasults:
+                                    <span>
+                                        Search Results:
                                     </span>
                                     Showing 1-6 of 20 Listings
                                 </p>
@@ -111,10 +104,6 @@
                                         <option value="3">Default Sort 03</option>
                                         <option value="4">Default Sort 04</option>
                                     </select>
-                                </div>
-                                <div class="menu-box">
-                                    <button class="list-view on"><i class="icon-31"></i></button>
-                                    <button class="grid-view"><i class="icon-30"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -178,7 +167,7 @@
                                                     </h5>
                                                 </div>
                                             </div>
-                                            <div class="btn-box"><a href="browse-ads-details.html" class="theme-btn-one">Details</a></div>
+                                            <div class="btn-box"><a href="{{ route('ad.show', ['id' => $ad->id]) }}" class="theme-btn-one">Details</a></div>
                                         </div>
                                     </div>
                                 @endforeach

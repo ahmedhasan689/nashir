@@ -67,126 +67,129 @@
                         </div>
                         <div class="content-two single-box">
                             <div class="bxslider">
-                                <div class="slider-content">
-                                    <div class="product-image">
-                                        <figure class="image"><img src="assets/images/resource/add-single-1.jpg" alt=""></figure>
+                                    <div class="slider-content">
+                                        <div class="product-image">
+                                            <figure class="image">
+                                                <img id="bigImage" src="{{ asset('storage') . '/' . $ad->media()->first()->media_url }}" alt="">
+                                            </figure>
+                                        </div>
+                                        <div class="slider-pager">
+                                            <ul class="thumb-box clearfix d-flex">
+                                                @for( $i = 1; $i < $ad->media()->count(); $i++  )
+                                                    @foreach( $ad->media as $media )
+                                                        <li>
+                                                            <a data-slide-index="{{ $media->id }}"  href="#">
+                                                                <figure>
+                                                                    <img data-id="{{ $media->id }}" class="smallImage" src="{{ asset('storage') . '/' . $media->media_url }}"  alt="" style="width: 20% !important;">
+                                                                </figure>
+                                                            </a>
+                                                        </li>
+                                                    @endforeach
+                                                @endfor
+                                            </ul>
+                                        </div>
                                     </div>
-                                    <div class="slider-pager">
-                                        <ul class="thumb-box clearfix">
-                                            <li>
-                                                <a class="active" data-slide-index="0" href="#"><figure><img src="assets/images/resource/single-thumb-1.jpg" alt=""></figure></a>
-                                            </li>
-                                            <li>
-                                                <a data-slide-index="1" href="#"><figure><img src="assets/images/resource/single-thumb-2.jpg" alt=""></figure></a>
-                                            </li>
-                                            <li>
-                                                <a data-slide-index="2" href="#"><figure><img src="assets/images/resource/single-thumb-3.jpg" alt=""></figure></a>
-                                            </li>
-                                            <li>
-                                                <a data-slide-index="3" href="#"><figure><img src="assets/images/resource/single-thumb-4.jpg" alt=""></figure></a>
-                                            </li>
-                                            <li>
-                                                <a data-slide-index="4" href="#"><figure><img src="assets/images/resource/single-thumb-5.jpg" alt=""></figure></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="slider-content">
-                                    <div class="product-image">
-                                        <figure class="image"><img src="assets/images/resource/add-single-2.jpg" alt=""></figure>
-                                    </div>
-                                    <div class="slider-pager">
-                                        <ul class="thumb-box clearfix">
-                                            <li>
-                                                <a class="active" data-slide-index="0" href="#"><figure><img src="assets/images/resource/single-thumb-1.jpg" alt=""></figure></a>
-                                            </li>
-                                            <li>
-                                                <a data-slide-index="1" href="#"><figure><img src="assets/images/resource/single-thumb-2.jpg" alt=""></figure></a>
-                                            </li>
-                                            <li>
-                                                <a data-slide-index="2" href="#"><figure><img src="assets/images/resource/single-thumb-3.jpg" alt=""></figure></a>
-                                            </li>
-                                            <li>
-                                                <a data-slide-index="3" href="#"><figure><img src="assets/images/resource/single-thumb-4.jpg" alt=""></figure></a>
-                                            </li>
-                                            <li>
-                                                <a data-slide-index="4" href="#"><figure><img src="assets/images/resource/single-thumb-5.jpg" alt=""></figure></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="slider-content">
-                                    <div class="product-image">
-                                        <figure class="image"><img src="assets/images/resource/add-single-3.jpg" alt=""></figure>
-                                    </div>
-                                    <div class="slider-pager">
-                                        <ul class="thumb-box clearfix">
-                                            <li>
-                                                <a class="active" data-slide-index="0" href="#"><figure><img src="assets/images/resource/single-thumb-1.jpg" alt=""></figure></a>
-                                            </li>
-                                            <li>
-                                                <a data-slide-index="1" href="#"><figure><img src="assets/images/resource/single-thumb-2.jpg" alt=""></figure></a>
-                                            </li>
-                                            <li>
-                                                <a data-slide-index="2" href="#"><figure><img src="assets/images/resource/single-thumb-3.jpg" alt=""></figure></a>
-                                            </li>
-                                            <li>
-                                                <a data-slide-index="3" href="#"><figure><img src="assets/images/resource/single-thumb-4.jpg" alt=""></figure></a>
-                                            </li>
-                                            <li>
-                                                <a data-slide-index="4" href="#"><figure><img src="assets/images/resource/single-thumb-5.jpg" alt=""></figure></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="slider-content">
-                                    <div class="product-image">
-                                        <figure class="image"><img src="assets/images/resource/add-single-4.jpg" alt=""></figure>
-                                    </div>
-                                    <div class="slider-pager">
-                                        <ul class="thumb-box clearfix">
-                                            <li>
-                                                <a class="active" data-slide-index="0" href="#"><figure><img src="assets/images/resource/single-thumb-1.jpg" alt=""></figure></a>
-                                            </li>
-                                            <li>
-                                                <a data-slide-index="1" href="#"><figure><img src="assets/images/resource/single-thumb-2.jpg" alt=""></figure></a>
-                                            </li>
-                                            <li>
-                                                <a data-slide-index="2" href="#"><figure><img src="assets/images/resource/single-thumb-3.jpg" alt=""></figure></a>
-                                            </li>
-                                            <li>
-                                                <a data-slide-index="3" href="#"><figure><img src="assets/images/resource/single-thumb-4.jpg" alt=""></figure></a>
-                                            </li>
-                                            <li>
-                                                <a data-slide-index="4" href="#"><figure><img src="assets/images/resource/single-thumb-5.jpg" alt=""></figure></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="slider-content">
-                                    <div class="product-image">
-                                        <figure class="image"><img src="assets/images/resource/add-single-5.jpg" alt=""></figure>
-                                    </div>
-                                    <div class="slider-pager">
-                                        <ul class="thumb-box clearfix">
-                                            <li>
-                                                <a class="active" data-slide-index="0" href="#"><figure><img src="assets/images/resource/single-thumb-1.jpg" alt=""></figure></a>
-                                            </li>
-                                            <li>
-                                                <a data-slide-index="1" href="#"><figure><img src="assets/images/resource/single-thumb-2.jpg" alt=""></figure></a>
-                                            </li>
-                                            <li>
-                                                <a data-slide-index="2" href="#"><figure><img src="assets/images/resource/single-thumb-3.jpg" alt=""></figure></a>
-                                            </li>
-                                            <li>
-                                                <a data-slide-index="3" href="#"><figure><img src="assets/images/resource/single-thumb-4.jpg" alt=""></figure></a>
-                                            </li>
-                                            <li>
-                                                <a data-slide-index="4" href="#"><figure><img src="assets/images/resource/single-thumb-5.jpg" alt=""></figure></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
+
+{{--                                <div class="slider-content">--}}
+{{--                                    <div class="product-image">--}}
+{{--                                        <figure class="image"><img src="{{ asset('assets/images/resource/add-single-2.jpg') }}" alt=""></figure>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="slider-pager">--}}
+{{--                                        <ul class="thumb-box clearfix">--}}
+{{--                                            <li>--}}
+{{--                                                <a class="active" data-slide-index="0" href="#">--}}
+{{--                                                    <figure>--}}
+{{--                                                        <img src="{{ asset('assets/images/resource/single-thumb-1.jpg') }}" alt="">--}}
+{{--                                                    </figure>--}}
+{{--                                                </a>--}}
+{{--                                            </li>--}}
+{{--                                            <li>--}}
+{{--                                                <a data-slide-index="1" href="#"><figure><img src="{{ asset('assets/images/resource/single-thumb-2.jpg') }}" alt=""></figure></a>--}}
+{{--                                            </li>--}}
+{{--                                            <li>--}}
+{{--                                                <a data-slide-index="2" href="#"><figure><img src="{{ asset('assets/images/resource/single-thumb-3.jpg') }}" alt=""></figure></a>--}}
+{{--                                            </li>--}}
+{{--                                            <li>--}}
+{{--                                                <a data-slide-index="3" href="#"><figure><img src="{{ asset('assets/images/resource/single-thumb-4.jpg') }}" alt=""></figure></a>--}}
+{{--                                            </li>--}}
+{{--                                            <li>--}}
+{{--                                                <a data-slide-index="4" href="#"><figure><img src="{{ asset('assets/images/resource/single-thumb-5.jpg') }}" alt=""></figure></a>--}}
+{{--                                            </li>--}}
+{{--                                        </ul>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <div class="slider-content">--}}
+{{--                                    <div class="product-image">--}}
+{{--                                        <figure class="image"><img src="assets/images/resource/add-single-3.jpg" alt=""></figure>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="slider-pager">--}}
+{{--                                        <ul class="thumb-box clearfix">--}}
+{{--                                            <li>--}}
+{{--                                                <a class="active" data-slide-index="0" href="#"><figure><img src="assets/images/resource/single-thumb-1.jpg" alt=""></figure></a>--}}
+{{--                                            </li>--}}
+{{--                                            <li>--}}
+{{--                                                <a data-slide-index="1" href="#"><figure><img src="assets/images/resource/single-thumb-2.jpg" alt=""></figure></a>--}}
+{{--                                            </li>--}}
+{{--                                            <li>--}}
+{{--                                                <a data-slide-index="2" href="#"><figure><img src="assets/images/resource/single-thumb-3.jpg" alt=""></figure></a>--}}
+{{--                                            </li>--}}
+{{--                                            <li>--}}
+{{--                                                <a data-slide-index="3" href="#"><figure><img src="assets/images/resource/single-thumb-4.jpg" alt=""></figure></a>--}}
+{{--                                            </li>--}}
+{{--                                            <li>--}}
+{{--                                                <a data-slide-index="4" href="#"><figure><img src="assets/images/resource/single-thumb-5.jpg" alt=""></figure></a>--}}
+{{--                                            </li>--}}
+{{--                                        </ul>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <div class="slider-content">--}}
+{{--                                    <div class="product-image">--}}
+{{--                                        <figure class="image"><img src="assets/images/resource/add-single-4.jpg" alt=""></figure>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="slider-pager">--}}
+{{--                                        <ul class="thumb-box clearfix">--}}
+{{--                                            <li>--}}
+{{--                                                <a class="active" data-slide-index="0" href="#"><figure><img src="assets/images/resource/single-thumb-1.jpg" alt=""></figure></a>--}}
+{{--                                            </li>--}}
+{{--                                            <li>--}}
+{{--                                                <a data-slide-index="1" href="#"><figure><img src="assets/images/resource/single-thumb-2.jpg" alt=""></figure></a>--}}
+{{--                                            </li>--}}
+{{--                                            <li>--}}
+{{--                                                <a data-slide-index="2" href="#"><figure><img src="assets/images/resource/single-thumb-3.jpg" alt=""></figure></a>--}}
+{{--                                            </li>--}}
+{{--                                            <li>--}}
+{{--                                                <a data-slide-index="3" href="#"><figure><img src="assets/images/resource/single-thumb-4.jpg" alt=""></figure></a>--}}
+{{--                                            </li>--}}
+{{--                                            <li>--}}
+{{--                                                <a data-slide-index="4" href="#"><figure><img src="assets/images/resource/single-thumb-5.jpg" alt=""></figure></a>--}}
+{{--                                            </li>--}}
+{{--                                        </ul>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <div class="slider-content">--}}
+{{--                                    <div class="product-image">--}}
+{{--                                        <figure class="image"><img src="assets/images/resource/add-single-5.jpg" alt=""></figure>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="slider-pager">--}}
+{{--                                        <ul class="thumb-box clearfix">--}}
+{{--                                            <li>--}}
+{{--                                                <a class="active" data-slide-index="0" href="#"><figure><img src="assets/images/resource/single-thumb-1.jpg" alt=""></figure></a>--}}
+{{--                                            </li>--}}
+{{--                                            <li>--}}
+{{--                                                <a data-slide-index="1" href="#"><figure><img src="assets/images/resource/single-thumb-2.jpg" alt=""></figure></a>--}}
+{{--                                            </li>--}}
+{{--                                            <li>--}}
+{{--                                                <a data-slide-index="2" href="#"><figure><img src="assets/images/resource/single-thumb-3.jpg" alt=""></figure></a>--}}
+{{--                                            </li>--}}
+{{--                                            <li>--}}
+{{--                                                <a data-slide-index="3" href="#"><figure><img src="assets/images/resource/single-thumb-4.jpg" alt=""></figure></a>--}}
+{{--                                            </li>--}}
+{{--                                            <li>--}}
+{{--                                                <a data-slide-index="4" href="#"><figure><img src="assets/images/resource/single-thumb-5.jpg" alt=""></figure></a>--}}
+{{--                                            </li>--}}
+{{--                                        </ul>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
                             </div>
                         </div>
                         <div class="content-three single-box">
@@ -679,7 +682,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12 form-column">
-                    <form action="contact.html" method="post" class="subscribe-form">
+                    <form action="#" method="post" class="subscribe-form">
                         <div class="form-group">
                             <input type="email" name="email" placeholder="Inout your email address" required="">
                             <button type="submit" class="theme-btn-one">Subscribe Now</button>
@@ -690,5 +693,16 @@
         </div>
     </section>
     <!-- subscribe-section end -->
+    @section('js')
+        <script>
+            $(document).on('click', '.smallImage', function(e) {
+                e.preventDefault();
+                let src = $(this).attr('src');
 
+                $(this).addClass('active');
+
+                $('#bigImage').attr('src', src)
+            });
+        </script>
+    @endsection
 </x-front-layout>

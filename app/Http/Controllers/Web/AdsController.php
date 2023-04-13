@@ -56,7 +56,7 @@ class AdsController extends Controller
      */
     public function show($id)
     {
-        $ad = Advertisement::query()->findOrFail($id);
+        $ad = Advertisement::with('media')->findOrFail($id);
 
         return view('web.ads.show', compact('ad'));
     }

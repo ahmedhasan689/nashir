@@ -81,78 +81,64 @@
                                             {{ __('lang.categories') }}
                                         </a>
                                     </li>
-                                    <li class="dropdown"><a href="index.html">Browse Ads</a>
+                                    <li>
+                                        <a href="{{ route('ad.index') }}">
+                                            Browse Ads
+                                        </a>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#">
+                                            Pages
+                                        </a>
                                         <ul>
-                                            <li><a href="browse-ads-1.html">Browse Ads Grid</a></li>
-                                            <li><a href="browse-ads-2.html">Browse Ads List</a></li>
-                                            <li><a href="browse-ads-3.html">Grid Half</a></li>
-                                            <li><a href="browse-ads-4.html">List Half</a></li>
-                                            <li><a href="browse-ads-details.html">Browse Ads Details</a></li>
+                                            <li><a href="#">About Us</a></li>
+                                            <li><a href="#">Our Stores</a></li>
+                                            <li><a href="#">Stores Details</a></li>
+                                            <li><a href="#">Faq'S</a></li>
+                                            <li><a href="#">Pricing Table</a></li>
+                                            <li><a href="#">Login Page</a></li>
+                                            <li><a href="#">Signup Page</a></li>
+                                            <li><a href="#">Contact Us</a></li>
+                                            <li><a href="#">404</a></li>
                                         </ul>
                                     </li>
-                                    <li class="dropdown"><a href="index.html">Pages</a>
-                                        <ul>
-                                            <li><a href="about.html">About Us</a></li>
-                                            <li><a href="stores.html">Our Stores</a></li>
-                                            <li><a href="stores-details.html">Stores Details</a></li>
-                                            <li><a href="faq.html">Faq'S</a></li>
-                                            <li><a href="pricing.html">Pricing Table</a></li>
-                                            <li><a href="login.html">Login Page</a></li>
-                                            <li><a href="signup.html">Signup Page</a></li>
-                                            <li><a href="contact.html">Contact Us</a></li>
-                                            <li><a href="error.html">404</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown"><a href="index.html">Elements</a>
-                                        <div class="megamenu">
-                                            <div class="row clearfix">
-                                                <div class="col-xl-6 column">
-                                                    <ul>
-                                                        <li><h4>Elements 1</h4></li>
-                                                        <li><a href="about-element.html">About Block</a></li>
-                                                        <li><a href="category-element-1.html">Category Block 01</a></li>
-                                                        <li><a href="category-element-2.html">Category Block 02</a></li>
-                                                        <li><a href="category-element-3.html">Category Block 03</a></li>
-                                                        <li><a href="place-element-1.html">Place Block 01</a></li>
-                                                        <li><a href="place-element-2.html">Place Block 02</a></li>
-                                                        <li><a href="news-element-1.html">News Block 01</a></li>
-                                                        <li><a href="news-element-2.html">News Block 02</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="col-xl-6 column">
-                                                    <ul>
-                                                        <li><h4>Elements 2</h4></li>
-                                                        <li><a href="feature-element-1.html">Feature Block 01</a></li>
-                                                        <li><a href="feature-element-2.html">Feature Block 02</a></li>
-                                                        <li><a href="Process-element-1.html">Process Block 01</a></li>
-                                                        <li><a href="Process-element-2.html">Process Block 02</a></li>
-                                                        <li><a href="testimonial-element.html">Testimonial Block</a></li>
-                                                        <li><a href="clients-element.html">Clients Block</a></li>
-                                                        <li><a href="newsletter-element.html">Newsletter Block</a></li>
-                                                        <li><a href="chooseus-element.html">Chooseus Block</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="dropdown"><a href="index.html">Blog</a>
-                                        <ul>
-                                            <li>
-                                                <a href="blog.html">
-                                                    Blog Grid
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="blog-2.html">
-                                                    Blog Standard
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="blog-details.html">
-                                                    Blog Details
-                                                </a>
-                                            </li>
-                                        </ul>
+{{--                                    <li class="dropdown">--}}
+{{--                                        <a href="#">Elements</a>--}}
+{{--                                        <div class="megamenu">--}}
+{{--                                            <div class="row clearfix">--}}
+{{--                                                <div class="col-xl-6 column">--}}
+{{--                                                    <ul>--}}
+{{--                                                        <li><h4>Elements 1</h4></li>--}}
+{{--                                                        <li><a href="about-element.html">About Block</a></li>--}}
+{{--                                                        <li><a href="category-element-1.html">Category Block 01</a></li>--}}
+{{--                                                        <li><a href="category-element-2.html">Category Block 02</a></li>--}}
+{{--                                                        <li><a href="#">Category Block 03</a></li>--}}
+{{--                                                        <li><a href="#">Place Block 01</a></li>--}}
+{{--                                                        <li><a href="#">Place Block 02</a></li>--}}
+{{--                                                        <li><a href="#">News Block 01</a></li>--}}
+{{--                                                        <li><a href="#">News Block 02</a></li>--}}
+{{--                                                    </ul>--}}
+{{--                                                </div>--}}
+{{--                                                <div class="col-xl-6 column">--}}
+{{--                                                    <ul>--}}
+{{--                                                        <li><h4>Elements 2</h4></li>--}}
+{{--                                                        <li><a href="feature-element-1.html">Feature Block 01</a></li>--}}
+{{--                                                        <li><a href="feature-element-2.html">Feature Block 02</a></li>--}}
+{{--                                                        <li><a href="Process-element-1.html">Process Block 01</a></li>--}}
+{{--                                                        <li><a href="Process-element-2.html">Process Block 02</a></li>--}}
+{{--                                                        <li><a href="testimonial-element.html">Testimonial Block</a></li>--}}
+{{--                                                        <li><a href="clients-element.html">Clients Block</a></li>--}}
+{{--                                                        <li><a href="newsletter-element.html">Newsletter Block</a></li>--}}
+{{--                                                        <li><a href="chooseus-element.html">Chooseus Block</a></li>--}}
+{{--                                                    </ul>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </li>--}}
+                                    <li class="dropdown">
+                                        <a href="#">
+                                            Blog
+                                        </a>
                                     </li>
                                     <li>
                                         @if( app()->getLocale() == 'en' )
@@ -357,9 +343,10 @@
 <script src="{{ asset('assets/js/appear.js') }}"></script>
 <script src="{{ asset('assets/js/scrollbar.js') }}"></script>
 <script src="{{ asset('assets/js/jquery.nice-select.min.js') }}"></script>
+<script src="{{ asset('assets/js/bxslider.js') }}"></script>
 
 <!-- main-js -->
 <script src="{{ asset('assets/js/script.js') }}"></script>
-
+@yield('js')
 </body><!-- End of .page_wrapper -->
 </html>
