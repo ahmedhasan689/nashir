@@ -344,6 +344,7 @@
 <script src="{{ asset('assets/js/scrollbar.js') }}"></script>
 <script src="{{ asset('assets/js/jquery.nice-select.min.js') }}"></script>
 <script src="{{ asset('assets/js/bxslider.js') }}"></script>
+<script src="{{ asset('js/share.js') }}"></script>
 
 <!-- main-js -->
 <script src="{{ asset('assets/js/script.js') }}"></script>

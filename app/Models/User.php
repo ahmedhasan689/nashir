@@ -5,6 +5,8 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -47,4 +49,19 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * ! Relations
+     *  ? With Advertisement ( Many Publisher Has Many Share )
+     */
+
+    /**
+     * ? Advertisements Relation
+     * @return belongsToMany
+     */
+    public function advertisements(): belongsToMany
+    {
+        return $this->belongsToMany(Advertisement::class, 'shares', 'advertisement_id', 'user_id')
+            ->as('shares');
+    }
 }

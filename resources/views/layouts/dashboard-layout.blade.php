@@ -389,11 +389,11 @@ License: For each use you must have a valid license purchased only from above li
 
     <script src="{{ asset('dashboard_assets/plugins/custom/ckeditor/ckeditor-classic.bundle.js') }}"></script>
 
+    @stack('js')
 
+    <script type="module" src="{{ asset('dashboard_assets/js/chart/chart.js') }}"></script>
     <!--end::Page Custom Javascript-->
     <!--end::Javascript-->
-
-    @stack('js')
 </body>
 <!--end::Body-->
 

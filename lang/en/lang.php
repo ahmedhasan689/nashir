@@ -61,4 +61,18 @@ return [
     'publishers_page' => 'Publishers Page',
     'email_status' => 'Verified Email',
     'phone_status' => 'Verified Phone',
+    'advertisement' => 'Advertisements',
+    'advertisement_count' => 'Number of Advertisements',
+    'my_share' => 'My Share',
+    'number_of_visitors' => 'Number Of Visitors',
+    'my_earnings' => 'My Earnings',
+    'new_advertisements' => 'New Advertisements',
+    'advertisements_page' => 'Advertisements Page',
+    'title' => 'Title',
+    'user_name' => 'Advertiser Name',
+    'category_name' => 'Category Name',
+    'is_feature' => 'Is Feature',
+    'created_at' => 'Created At',
+    'my_shares' => 'My Shares',
+    'share_list' => 'Share List'
 ];

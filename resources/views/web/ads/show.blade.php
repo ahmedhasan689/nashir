@@ -33,16 +33,21 @@
                 <div class="right-column pull-right clearfix">
                     <ul class="links-list clearfix">
                         <li class="share-option">
-                            <a href="browse-add-details.html" class="share-btn"><i class="fas fa-share-alt"></i></a>
+                            <a href="#" class="share-btn"><i class="fas fa-share-alt"></i></a>
                             <ul>
-                                <li><a href="browse-add-details.html"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="browse-add-details.html"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="browse-add-details.html"><i class="fab fa-google-plus-g"></i></a></li>
-                                <li><a href="browse-add-details.html"><i class="fab fa-linkedin-in"></i></a></li>
+                                <li>
+                                    <a id="facebookShare" href="#">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                </li>
+                                <li><a id="telegramShare" href="#"><i class="fab fa-telegram"></i></a></li>
+                                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
                             </ul>
+
                         </li>
-                        <li><a href="browse-add-details.html"><i class="icon-21"></i></a></li>
-                        <li><a href="browse-add-details.html"><i class="icon-22"></i></a></li>
+                        <li><a href="#"><i class="icon-21"></i></a></li>
+                        <li><a href="#"><i class="icon-22"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -68,25 +73,29 @@
                         <div class="content-two single-box">
                             <div class="bxslider">
                                     <div class="slider-content">
-                                        <div class="product-image">
-                                            <figure class="image">
-                                                <img id="bigImage" src="{{ asset('storage') . '/' . $ad->media()->first()->media_url }}" alt="">
-                                            </figure>
-                                        </div>
+                                        @if( $ad->media()->count() > 0 )
+                                            <div class="product-image">
+                                                <figure class="image">
+                                                    <img id="bigImage" src="{{ asset('storage') . '/' . $ad->media()->first()->media_url }}" alt="">
+                                                </figure>
+                                            </div>
+                                        @endif
                                         <div class="slider-pager">
-                                            <ul class="thumb-box clearfix d-flex">
-                                                @for( $i = 1; $i < $ad->media()->count(); $i++  )
-                                                    @foreach( $ad->media as $media )
-                                                        <li>
-                                                            <a data-slide-index="{{ $media->id }}"  href="#">
-                                                                <figure>
-                                                                    <img data-id="{{ $media->id }}" class="smallImage" src="{{ asset('storage') . '/' . $media->media_url }}"  alt="" style="width: 20% !important;">
-                                                                </figure>
-                                                            </a>
-                                                        </li>
-                                                    @endforeach
-                                                @endfor
-                                            </ul>
+                                            @if( $ad->media()->count() > 0 )
+                                                <ul class="thumb-box clearfix d-flex">
+                                                    @for( $i = 1; $i < $ad->media()->count(); $i++  )
+                                                        @foreach( $ad->media as $media )
+                                                            <li>
+                                                                <a data-slide-index="{{ $media->id }}"  href="#">
+                                                                    <figure>
+                                                                        <img data-id="{{ $media->id }}" class="smallImage" src="{{ asset('storage') . '/' . $media->media_url }}"  alt="" style="width: 20% !important;">
+                                                                    </figure>
+                                                                </a>
+                                                            </li>
+                                                        @endforeach
+                                                    @endfor
+                                                </ul>
+                                            @endif
                                         </div>
                                     </div>
 
@@ -703,6 +712,42 @@
 
                 $('#bigImage').attr('src', src)
             });
+        </script>
+
+        <script>
+            $(document).on('click', '#facebookShare', function(e) {
+                e.preventDefault();
+
+                shareDirection('Facebook');
+
+                window.location = 'https://www.facebook.com/sharer/sharer.php?u={{ route("ad.show", ['id' => $ad->id, 'userId' => auth()->user()->id, 'type' => 'Facebook']) }}';
+            })
+
+            $(document).on('click', '#telegramShare', function(e) {
+                e.preventDefault();
+
+                // Here
+                shareDirection('Telegram');
+
+                window.location = 'https://telegram.me/share/url?type=tele&url={{ route("ad.show", ['id' => $ad->id, 'userId' => auth()->user()->id, 'type' => 'Telegram']) }}'
+            });
+
+            function shareDirection(type) {
+                $.ajax({
+                    url: "{{ route('share.store') }}",
+                    type: "GET",
+                    data: {
+                        type: type,
+                        advertisement_id: {{ $ad->id }},
+                    },
+                    success: function(data) {
+                        //
+                    },
+                    error: function(data){
+                        console.log(data);
+                    }
+                });
+            }
         </script>
     @endsection
 </x-front-layout>

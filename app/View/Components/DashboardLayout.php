@@ -2,6 +2,8 @@
 
 namespace App\View\Components;
 
+use App\Models\Share;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\Component;
 
 class DashboardLayout extends Component

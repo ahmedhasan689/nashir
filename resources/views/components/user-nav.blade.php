@@ -188,16 +188,18 @@
                             </span>
                             <!--end::Svg Icon-->
                         </span>
-                        <span class="menu-title">User</span>
+                        <span class="menu-title">{{ __('lang.my_shares') }}</span>
                         <span class="menu-arrow"></span>
                     </span>
                     <div class="menu-sub menu-sub-accordion menu-active-bg">
                         <div class="menu-item">
-                            <a class="menu-link" href="widgets/lists.html">
+                            <a class="menu-link" href="{{ route('share.index') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
-                                <span class="menu-title">Lists</span>
+                                <span class="menu-title">
+                                    {{ __('lang.share_list') }}
+                                </span>
                             </a>
                         </div>
                     </div>

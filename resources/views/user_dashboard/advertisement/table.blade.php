@@ -54,7 +54,7 @@
                     <span class="text-warning">
                         Under Review
                     </span>
-                @elseif( $advertisement->status == 'accept' )
+                @elseif( $advertisement->status == 'accepted' )
                     <span class="text-success">
                         Accepted
                     </span>
@@ -110,6 +110,16 @@
                            class="menu-link px-3">Show Media</a>
                     </div>
                     <!--end::Menu item-->
+
+                    @if( $advertisement->status == 'accepted' )
+                        <!--begin::Menu item-->
+                        <div class="menu-item px-3">
+                            <a href="{{ route('share.show', ['id' => $advertisement->id, 'type' => 'advertiser']) }}"
+                               class="menu-link px-3">Show Statistics</a>
+                        </div>
+                        <!--end::Menu item-->
+                    @endif
+
                     <!--begin::Menu item-->
                     <div class="menu-item px-3">
                         <a href="#" class="menu-link px-3" data-bs-toggle="modal"

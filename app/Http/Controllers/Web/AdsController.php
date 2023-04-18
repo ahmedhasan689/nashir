@@ -6,10 +6,15 @@ use App\Http\Controllers\Controller;
 use App\Models\Advertisement;
 use App\Models\Category;
 use App\Models\Country;
+use App\Models\User;
+use App\Models\Visitor;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Jorenvh\Share\Share;
+use Kudashevs\ShareButtons\ShareButtons;
 
 class AdsController extends Controller
 {
@@ -54,9 +59,20 @@ class AdsController extends Controller
      * @param  int  $id
      * @return Application|Factory|View
      */
-    public function show($id)
+    public function show(Request $request, $id, $userId = null, $type = null)
     {
         $ad = Advertisement::with('media')->findOrFail($id);
+
+        if( $request->type ) {
+            Visitor::create([
+                'type' => $type,
+                'ip_address' => $request->ip(),
+                'user_id' => $request->userId,
+                'advertisement_id' => $ad->id,
+            ]);
+        }
+
+        $share = new Share();
 
         return view('web.ads.show', compact('ad'));
     }

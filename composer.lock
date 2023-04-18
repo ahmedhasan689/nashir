@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7ad110219b934708ff61293d71071e52",
+    "content-hash": "8a219683429560e512c47070db41c454",
     "packages": [
         {
             "name": "brick/math",
@@ -980,6 +980,136 @@
                 }
             ],
             "time": "2021-10-07T12:57:01+00:00"
+        },
+        {
+            "name": "jorenvanhocht/laravel-share",
+            "version": "4.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jorenvh/laravel-share.git",
+                "reference": "86af334068038a840567ed62f2082fe3ac981476"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jorenvh/laravel-share/zipball/86af334068038a840567ed62f2082fe3ac981476",
+                "reference": "86af334068038a840567ed62f2082fe3ac981476",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4|^8.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^6.13|^7.0",
+                "phpunit/phpunit": "^9.3"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Jorenvh\\Share\\Providers\\ShareServiceProvider"
+                    ],
+                    "aliases": {
+                        "Share": "Jorenvh\\Share\\ShareFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Jorenvh\\Share\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Joren Van Hocht",
+                    "email": "joren@codeswitch.be",
+                    "homepage": "https://codeswitch.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Optional package for Laravel to generate social share links.",
+            "homepage": "https://github.com/jorenvh/laravel-share",
+            "keywords": [
+                "laravel",
+                "share",
+                "social links",
+                "social share links"
+            ],
+            "support": {
+                "issues": "https://github.com/jorenvh/laravel-share/issues",
+                "source": "https://github.com/jorenvh/laravel-share/tree/4.2.0"
+            },
+            "time": "2022-02-11T17:20:09+00:00"
+        },
+        {
+            "name": "kudashevs/laravel-share-buttons",
+            "version": "v3.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kudashevs/laravel-share-buttons.git",
+                "reference": "10485dcc3e92125aaf0709792a8e57da02ca9584"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kudashevs/laravel-share-buttons/zipball/10485dcc3e92125aaf0709792a8e57da02ca9584",
+                "reference": "10485dcc3e92125aaf0709792a8e57da02ca9584",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4|^8.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^6.7|^7.0|^8.0",
+                "phpunit/phpunit": "^9.1"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Kudashevs\\ShareButtons\\Providers\\ShareButtonsServiceProvider"
+                    ],
+                    "aliases": {
+                        "ShareButtons": "Kudashevs\\ShareButtons\\Facades\\ShareButtonsFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Kudashevs\\ShareButtons\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Joren Van Hocht",
+                    "email": "joren@codeswitch.be",
+                    "homepage": "https://codeswitch.be",
+                    "role": "Creator"
+                },
+                {
+                    "name": "Sergey Kudashev",
+                    "email": "kudashevs@gmail.com"
+                }
+            ],
+            "description": "A laravel social media share buttons package.",
+            "homepage": "https://github.com/kudashevs/laravel-share-buttons",
+            "keywords": [
+                "laravel",
+                "share",
+                "share buttons",
+                "social links"
+            ],
+            "support": {
+                "issues": "https://github.com/kudashevs/laravel-share-buttons/issues",
+                "source": "https://github.com/kudashevs/laravel-share-buttons/tree/v3.3.0"
+            },
+            "time": "2023-04-08T15:51:12+00:00"
         },
         {
             "name": "laminas/laminas-diactoros",

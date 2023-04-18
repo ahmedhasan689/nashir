@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -67,6 +68,31 @@ class Advertisement extends Model
     public function media(): HasMany
     {
         return $this->hasMany(AdvertisementMedia::class, 'advertisement_id');
+    }
+
+    /**
+     * ? Publishers Relation
+     * @return BelongsToMany
+     */
+    public function publishers(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'shares', 'user_id', 'advertisement_id');
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function shares()
+    {
+        return $this->belongsTo(Share::class, 'advertisement_id');
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function visitors()
+    {
+        return $this->belongsTo(Visitor::class, 'advertisement_id');
     }
 
     /**
