@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Category extends Model
 {
@@ -14,6 +16,20 @@ class Category extends Model
         'cover_image',
         'status',
     ];
+
+
+    /**
+     * ! Relation
+     */
+
+    /**
+     * @return HasMany
+     */
+    public function advertisements(): HasMany
+    {
+        return $this->hasMany(Advertisement::class, 'category_id');
+    }
+
 
     /**
      * ! Accessors For Cover Image

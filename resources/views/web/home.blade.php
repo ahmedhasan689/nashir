@@ -5,15 +5,15 @@
             <div class="row align-items-center clearfix">
                 <div class="col-lg-8 col-md-6 col-sm-12 content-column">
                     <div class="content-box">
-                        <h1>Buy, Sell, Rent & Exchange in one Click</h1>
-                        <p>Amet consectetur adipisicing elit sed do eiusmod.</p>
+                        <h1>Browse ads through our site</h1>
+                        <p>Lots of ads you can find here, post your ad now</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-12 inner-column">
                     <div class="inner-box">
                         <div class="pattern-layer" style="background-image: url(assets/images/shape/shape-12.png);"></div>
                         <h3>Find Product</h3>
-                        <form action="index-3.html" method="post">
+                        <form action="#" method="post">
                             <div class="form-group">
                                 <i class="icon-2"></i>
                                 <input type="search" name="search-field" placeholder="Search Keyword..." required="">
@@ -22,20 +22,22 @@
                                 <i class="icon-3"></i>
                                 <select class="wide">
                                     <option data-display="Select Location">Select Location</option>
-                                    <option value="1">California</option>
-                                    <option value="2">New York</option>
-                                    <option value="3">Sun Francis</option>
-                                    <option value="4">Shicago</option>
+                                    @foreach( $countries as $country )
+                                        <option value="{{ $country->id }}">
+                                            {{ $country->name }}
+                                        </option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="form-group">
                                 <i class="icon-4"></i>
                                 <select class="wide">
                                     <option data-display="Select Category">Select Category</option>
-                                    <option value="1">Education</option>
-                                    <option value="2">Restaurant</option>
-                                    <option value="3">Real Estate</option>
-                                    <option value="4">Home Appliances</option>
+                                    @foreach( $categories as $category )
+                                        <option value="{{ $category->id }}">
+                                            {{ $category->name }}
+                                        </option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="form-group">
@@ -57,284 +59,26 @@
             <div class="sec-title">
                 <span>Categories</span>
                 <h2>Explore by Category</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing sed do eiusmod tempor incididunt labore <br />dolore magna aliqua enim.</p>
+                <p>Many categories and sections, for easy access to ads</p>
             </div>
             <div class="five-item-carousel owl-carousel owl-theme dots-style-one owl-nav-none">
-                <div class="category-block-one">
-                    <div class="inner-box">
-                        <div class="shape">
-                            <div class="shape-1" style="background-image: url(assets/images/shape/shape-1.png);"></div>
-                            <div class="shape-2" style="background-image: url(assets/images/shape/shape-2.png);"></div>
+                @foreach( $categories as $category )
+                    <div class="category-block-one">
+                        <div class="inner-box">
+                            <div class="shape">
+                                <div class="shape-1" style="background-image: url({{ asset('front_assets/images/shape/shape-1.png') }});"></div>
+                                <div class="shape-2" style="background-image: url({{ asset('front_assets/images/shape/shape-e.png') }});"></div>
+                            </div>
+                            <div class="icon-box"><i class="icon-6"></i></div>
+                            <h5>
+                                {{ $category->name }}
+                            </h5>
+                            <span>
+                                {{ $category->advertisements_count }}
+                            </span>
                         </div>
-                        <div class="icon-box"><i class="icon-6"></i></div>
-                        <h5>Property</h5>
-                        <span>52</span>
                     </div>
-                </div>
-                <div class="category-block-one">
-                    <div class="inner-box">
-                        <div class="shape">
-                            <div class="shape-1" style="background-image: url(assets/images/shape/shape-1.png);"></div>
-                            <div class="shape-2" style="background-image: url(assets/images/shape/shape-2.png);"></div>
-                        </div>
-                        <div class="icon-box"><i class="icon-7"></i></div>
-                        <h5>Home Appliances</h5>
-                        <span>20</span>
-                    </div>
-                </div>
-                <div class="category-block-one">
-                    <div class="inner-box">
-                        <div class="shape">
-                            <div class="shape-1" style="background-image: url(assets/images/shape/shape-1.png);"></div>
-                            <div class="shape-2" style="background-image: url(assets/images/shape/shape-2.png);"></div>
-                        </div>
-                        <div class="icon-box"><i class="icon-8"></i></div>
-                        <h5>Electronics</h5>
-                        <span>35</span>
-                    </div>
-                </div>
-                <div class="category-block-one">
-                    <div class="inner-box">
-                        <div class="shape">
-                            <div class="shape-1" style="background-image: url(assets/images/shape/shape-1.png);"></div>
-                            <div class="shape-2" style="background-image: url(assets/images/shape/shape-2.png);"></div>
-                        </div>
-                        <div class="icon-box"><i class="icon-9"></i></div>
-                        <h5>Health & Beauty</h5>
-                        <span>10</span>
-                    </div>
-                </div>
-                <div class="category-block-one">
-                    <div class="inner-box">
-                        <div class="shape">
-                            <div class="shape-1" style="background-image: url(assets/images/shape/shape-1.png);"></div>
-                            <div class="shape-2" style="background-image: url(assets/images/shape/shape-2.png);"></div>
-                        </div>
-                        <div class="icon-box"><i class="icon-10"></i></div>
-                        <h5>Automotive</h5>
-                        <span>27</span>
-                    </div>
-                </div>
-                <div class="category-block-one">
-                    <div class="inner-box">
-                        <div class="shape">
-                            <div class="shape-1" style="background-image: url(assets/images/shape/shape-1.png);"></div>
-                            <div class="shape-2" style="background-image: url(assets/images/shape/shape-2.png);"></div>
-                        </div>
-                        <div class="icon-box"><i class="icon-6"></i></div>
-                        <h5>Property</h5>
-                        <span>52</span>
-                    </div>
-                </div>
-                <div class="category-block-one">
-                    <div class="inner-box">
-                        <div class="shape">
-                            <div class="shape-1" style="background-image: url(assets/images/shape/shape-1.png);"></div>
-                            <div class="shape-2" style="background-image: url(assets/images/shape/shape-2.png);"></div>
-                        </div>
-                        <div class="icon-box"><i class="icon-7"></i></div>
-                        <h5>Home Appliances</h5>
-                        <span>20</span>
-                    </div>
-                </div>
-                <div class="category-block-one">
-                    <div class="inner-box">
-                        <div class="shape">
-                            <div class="shape-1" style="background-image: url(assets/images/shape/shape-1.png);"></div>
-                            <div class="shape-2" style="background-image: url(assets/images/shape/shape-2.png);"></div>
-                        </div>
-                        <div class="icon-box"><i class="icon-8"></i></div>
-                        <h5>Electronics</h5>
-                        <span>35</span>
-                    </div>
-                </div>
-                <div class="category-block-one">
-                    <div class="inner-box">
-                        <div class="shape">
-                            <div class="shape-1" style="background-image: url(assets/images/shape/shape-1.png);"></div>
-                            <div class="shape-2" style="background-image: url(assets/images/shape/shape-2.png);"></div>
-                        </div>
-                        <div class="icon-box"><i class="icon-9"></i></div>
-                        <h5>Health & Beauty</h5>
-                        <span>10</span>
-                    </div>
-                </div>
-                <div class="category-block-one">
-                    <div class="inner-box">
-                        <div class="shape">
-                            <div class="shape-1" style="background-image: url(assets/images/shape/shape-1.png);"></div>
-                            <div class="shape-2" style="background-image: url(assets/images/shape/shape-2.png);"></div>
-                        </div>
-                        <div class="icon-box"><i class="icon-10"></i></div>
-                        <h5>Automotive</h5>
-                        <span>27</span>
-                    </div>
-                </div>
-                <div class="category-block-one">
-                    <div class="inner-box">
-                        <div class="shape">
-                            <div class="shape-1" style="background-image: url(assets/images/shape/shape-1.png);"></div>
-                            <div class="shape-2" style="background-image: url(assets/images/shape/shape-2.png);"></div>
-                        </div>
-                        <div class="icon-box"><i class="icon-6"></i></div>
-                        <h5>Property</h5>
-                        <span>52</span>
-                    </div>
-                </div>
-                <div class="category-block-one">
-                    <div class="inner-box">
-                        <div class="shape">
-                            <div class="shape-1" style="background-image: url(assets/images/shape/shape-1.png);"></div>
-                            <div class="shape-2" style="background-image: url(assets/images/shape/shape-2.png);"></div>
-                        </div>
-                        <div class="icon-box"><i class="icon-7"></i></div>
-                        <h5>Home Appliances</h5>
-                        <span>20</span>
-                    </div>
-                </div>
-                <div class="category-block-one">
-                    <div class="inner-box">
-                        <div class="shape">
-                            <div class="shape-1" style="background-image: url(assets/images/shape/shape-1.png);"></div>
-                            <div class="shape-2" style="background-image: url(assets/images/shape/shape-2.png);"></div>
-                        </div>
-                        <div class="icon-box"><i class="icon-8"></i></div>
-                        <h5>Electronics</h5>
-                        <span>35</span>
-                    </div>
-                </div>
-                <div class="category-block-one">
-                    <div class="inner-box">
-                        <div class="shape">
-                            <div class="shape-1" style="background-image: url(assets/images/shape/shape-1.png);"></div>
-                            <div class="shape-2" style="background-image: url(assets/images/shape/shape-2.png);"></div>
-                        </div>
-                        <div class="icon-box"><i class="icon-9"></i></div>
-                        <h5>Health & Beauty</h5>
-                        <span>10</span>
-                    </div>
-                </div>
-                <div class="category-block-one">
-                    <div class="inner-box">
-                        <div class="shape">
-                            <div class="shape-1" style="background-image: url(assets/images/shape/shape-1.png);"></div>
-                            <div class="shape-2" style="background-image: url(assets/images/shape/shape-2.png);"></div>
-                        </div>
-                        <div class="icon-box"><i class="icon-10"></i></div>
-                        <h5>Automotive</h5>
-                        <span>27</span>
-                    </div>
-                </div>
-                <div class="category-block-one">
-                    <div class="inner-box">
-                        <div class="shape">
-                            <div class="shape-1" style="background-image: url(assets/images/shape/shape-1.png);"></div>
-                            <div class="shape-2" style="background-image: url(assets/images/shape/shape-2.png);"></div>
-                        </div>
-                        <div class="icon-box"><i class="icon-6"></i></div>
-                        <h5>Property</h5>
-                        <span>52</span>
-                    </div>
-                </div>
-                <div class="category-block-one">
-                    <div class="inner-box">
-                        <div class="shape">
-                            <div class="shape-1" style="background-image: url(assets/images/shape/shape-1.png);"></div>
-                            <div class="shape-2" style="background-image: url(assets/images/shape/shape-2.png);"></div>
-                        </div>
-                        <div class="icon-box"><i class="icon-7"></i></div>
-                        <h5>Home Appliances</h5>
-                        <span>20</span>
-                    </div>
-                </div>
-                <div class="category-block-one">
-                    <div class="inner-box">
-                        <div class="shape">
-                            <div class="shape-1" style="background-image: url(assets/images/shape/shape-1.png);"></div>
-                            <div class="shape-2" style="background-image: url(assets/images/shape/shape-2.png);"></div>
-                        </div>
-                        <div class="icon-box"><i class="icon-8"></i></div>
-                        <h5>Electronics</h5>
-                        <span>35</span>
-                    </div>
-                </div>
-                <div class="category-block-one">
-                    <div class="inner-box">
-                        <div class="shape">
-                            <div class="shape-1" style="background-image: url(assets/images/shape/shape-1.png);"></div>
-                            <div class="shape-2" style="background-image: url(assets/images/shape/shape-2.png);"></div>
-                        </div>
-                        <div class="icon-box"><i class="icon-9"></i></div>
-                        <h5>Health & Beauty</h5>
-                        <span>10</span>
-                    </div>
-                </div>
-                <div class="category-block-one">
-                    <div class="inner-box">
-                        <div class="shape">
-                            <div class="shape-1" style="background-image: url(assets/images/shape/shape-1.png);"></div>
-                            <div class="shape-2" style="background-image: url(assets/images/shape/shape-2.png);"></div>
-                        </div>
-                        <div class="icon-box"><i class="icon-10"></i></div>
-                        <h5>Automotive</h5>
-                        <span>27</span>
-                    </div>
-                </div>
-                <div class="category-block-one">
-                    <div class="inner-box">
-                        <div class="shape">
-                            <div class="shape-1" style="background-image: url(assets/images/shape/shape-1.png);"></div>
-                            <div class="shape-2" style="background-image: url(assets/images/shape/shape-2.png);"></div>
-                        </div>
-                        <div class="icon-box"><i class="icon-6"></i></div>
-                        <h5>Property</h5>
-                        <span>52</span>
-                    </div>
-                </div>
-                <div class="category-block-one">
-                    <div class="inner-box">
-                        <div class="shape">
-                            <div class="shape-1" style="background-image: url(assets/images/shape/shape-1.png);"></div>
-                            <div class="shape-2" style="background-image: url(assets/images/shape/shape-2.png);"></div>
-                        </div>
-                        <div class="icon-box"><i class="icon-7"></i></div>
-                        <h5>Home Appliances</h5>
-                        <span>20</span>
-                    </div>
-                </div>
-                <div class="category-block-one">
-                    <div class="inner-box">
-                        <div class="shape">
-                            <div class="shape-1" style="background-image: url(assets/images/shape/shape-1.png);"></div>
-                            <div class="shape-2" style="background-image: url(assets/images/shape/shape-2.png);"></div>
-                        </div>
-                        <div class="icon-box"><i class="icon-8"></i></div>
-                        <h5>Electronics</h5>
-                        <span>35</span>
-                    </div>
-                </div>
-                <div class="category-block-one">
-                    <div class="inner-box">
-                        <div class="shape">
-                            <div class="shape-1" style="background-image: url(assets/images/shape/shape-1.png);"></div>
-                            <div class="shape-2" style="background-image: url(assets/images/shape/shape-2.png);"></div>
-                        </div>
-                        <div class="icon-box"><i class="icon-9"></i></div>
-                        <h5>Health & Beauty</h5>
-                        <span>10</span>
-                    </div>
-                </div>
-                <div class="category-block-one">
-                    <div class="inner-box">
-                        <div class="shape">
-                            <div class="shape-1" style="background-image: url(assets/images/shape/shape-1.png);"></div>
-                            <div class="shape-2" style="background-image: url(assets/images/shape/shape-2.png);"></div>
-                        </div>
-                        <div class="icon-box"><i class="icon-10"></i></div>
-                        <h5>Automotive</h5>
-                        <span>27</span>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -345,15 +89,17 @@
     <section class="feature-style-three">
         <div class="auto-container">
             <div class="sec-title centred">
-                <span>Features</span>
-                <h2>Featured Ads</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing sed do eiusmod tempor incididunt labore <br />dolore magna aliqua enim.</p>
+                <span>Ads</span>
+                <h2>Explore Ads</h2>
+                <p>
+                    The site includes many different advertisements, register on the site and publish the advertisement or help in publishing it on social networking sites
+                </p>
             </div>
             <div class="tabs-box">
                 <div class="tab-btn-box centred">
                     <ul class="tab-btns tab-buttons clearfix">
-                        <li class="tab-btn active-btn" data-tab="#tab-1">Recent Listing</li>
-                        <li class="tab-btn" data-tab="#tab-2">Popular Listing</li>
+                        <li class="tab-btn active-btn" data-tab="#tab-1">Recent Ads</li>
+                        <li class="tab-btn" data-tab="#tab-2">Popular Ads</li>
                     </ul>
                 </div>
                 <div class="tabs-content">
@@ -495,138 +241,46 @@
                     </div>
                     <div class="tab" id="tab-2">
                         <div class="row clearfix">
-                            <div class="col-lg-6 col-md-12 col-sm-12 feature-block">
-                                <div class="feature-block-one">
-                                    <div class="inner-box">
-                                        <div class="image-box">
-                                            <figure class="image"><img src="assets/images/resource/feature-15.jpg" alt=""></figure>
-                                            <div class="feature-2">Featured</div>
-                                        </div>
-                                        <div class="lower-content">
-                                            <div class="category"><i class="fas fa-tags"></i><p>Electronics</p></div>
-                                            <h4><a href="browse-ads-details.html">Villa on Grand Avenue</a></h4>
-                                            <ul class="rating clearfix">
-                                                <li><i class="icon-17"></i></li>
-                                                <li><i class="icon-17"></i></li>
-                                                <li><i class="icon-17"></i></li>
-                                                <li><i class="icon-17"></i></li>
-                                                <li><i class="icon-17"></i></li>
-                                                <li><a href="index.html">(32)</a></li>
-                                            </ul>
-                                            <ul class="info clearfix">
-                                                <li><i class="far fa-clock"></i>1 months ago</li>
-                                                <li><i class="fas fa-map-marker-alt"></i>G87P, Birmingham, UK</li>
-                                            </ul>
-                                            <div class="lower-box">
-                                                <h5><span>Start From:</span> $3,000.00</h5>
-                                                <ul class="react-box">
-                                                    <li><a href="index.html"><i class="icon-21"></i></a></li>
-                                                    <li><a href="index.html"><i class="icon-22"></i></a></li>
+                            @foreach( $popular_ads as $ad )
+                                <div class="col-lg-6 col-md-12 col-sm-12 feature-block">
+                                    <div class="feature-block-one">
+                                        <div class="inner-box">
+                                            <div class="image-box">
+                                                <figure class="image">
+                                                    <img src="{{ asset('storage') . '/' . $ad->advertisements->cover_image }}" style="width: 200px !important; height: 200px !important;" alt="">
+                                                </figure>
+                                                <div class="feature-2">Featured</div>
+                                            </div>
+                                            <div class="lower-content">
+                                                <div class="category">
+                                                    <i class="fas fa-tags"></i>
+                                                    <p>
+                                                        {{ $ad->advertisements->category->name }}
+                                                    </p>
+                                                </div>
+                                                <h4>
+                                                    <a href="{{ route('ad.show', ['id' => $ad->advertisements->id]) }}">
+                                                        {{ $ad->advertisements->title }}
+                                                    </a>
+                                                </h4>
+
+                                                <ul class="info clearfix">
+                                                    <li>
+                                                        <i class="far fa-clock"></i>
+                                                        {{ $ad->advertisements->created_at->diffForHumans() }}
+                                                    </li>
+                                                    <li>
+                                                        <i class="fas fa-map-marker-alt"></i>
+                                                        {{ $ad->advertisements->country->name }}
+                                                    </li>
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-6 col-md-12 col-sm-12 feature-block">
-                                <div class="feature-block-one">
-                                    <div class="inner-box">
-                                        <div class="image-box">
-                                            <figure class="image"><img src="assets/images/resource/feature-16.jpg" alt=""></figure>
-                                            <div class="feature-2">Featured</div>
-                                        </div>
-                                        <div class="lower-content">
-                                            <div class="category"><i class="fas fa-tags"></i><p>Electronics</p></div>
-                                            <h4><a href="browse-ads-details.html">Villa on Grand Avenue</a></h4>
-                                            <ul class="rating clearfix">
-                                                <li><i class="icon-17"></i></li>
-                                                <li><i class="icon-17"></i></li>
-                                                <li><i class="icon-17"></i></li>
-                                                <li><i class="icon-17"></i></li>
-                                                <li><i class="icon-17"></i></li>
-                                                <li><a href="index.html">(25)</a></li>
-                                            </ul>
-                                            <ul class="info clearfix">
-                                                <li><i class="far fa-clock"></i>2 months ago</li>
-                                                <li><i class="fas fa-map-marker-alt"></i>G87P, Birmingham, UK</li>
-                                            </ul>
-                                            <div class="lower-box">
-                                                <h5><span>Start From:</span> $2,000.00</h5>
-                                                <ul class="react-box">
-                                                    <li><a href="index.html"><i class="icon-21"></i></a></li>
-                                                    <li><a href="index.html"><i class="icon-22"></i></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-12 col-sm-12 feature-block">
-                                <div class="feature-block-one">
-                                    <div class="inner-box">
-                                        <div class="image-box">
-                                            <figure class="image"><img src="assets/images/resource/feature-17.jpg" alt=""></figure>
-                                            <div class="feature-2">Featured</div>
-                                        </div>
-                                        <div class="lower-content">
-                                            <div class="category"><i class="fas fa-tags"></i><p>Electronics</p></div>
-                                            <h4><a href="browse-ads-details.html">Villa on Grand Avenue</a></h4>
-                                            <ul class="rating clearfix">
-                                                <li><i class="icon-17"></i></li>
-                                                <li><i class="icon-17"></i></li>
-                                                <li><i class="icon-17"></i></li>
-                                                <li><i class="icon-17"></i></li>
-                                                <li><i class="icon-17"></i></li>
-                                                <li><a href="index.html">(40)</a></li>
-                                            </ul>
-                                            <ul class="info clearfix">
-                                                <li><i class="far fa-clock"></i>3 months ago</li>
-                                                <li><i class="fas fa-map-marker-alt"></i>G87P, Birmingham, UK</li>
-                                            </ul>
-                                            <div class="lower-box">
-                                                <h5><span>Start From:</span> $3,500.00</h5>
-                                                <ul class="react-box">
-                                                    <li><a href="index.html"><i class="icon-21"></i></a></li>
-                                                    <li><a href="index.html"><i class="icon-22"></i></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-12 col-sm-12 feature-block">
-                                <div class="feature-block-one">
-                                    <div class="inner-box">
-                                        <div class="image-box">
-                                            <figure class="image"><img src="assets/images/resource/feature-18.jpg" alt=""></figure>
-                                            <div class="feature-2">Featured</div>
-                                        </div>
-                                        <div class="lower-content">
-                                            <div class="category"><i class="fas fa-tags"></i><p>Electronics</p></div>
-                                            <h4><a href="browse-ads-details.html">Villa on Grand Avenue</a></h4>
-                                            <ul class="rating clearfix">
-                                                <li><i class="icon-17"></i></li>
-                                                <li><i class="icon-17"></i></li>
-                                                <li><i class="icon-17"></i></li>
-                                                <li><i class="icon-17"></i></li>
-                                                <li><i class="icon-17"></i></li>
-                                                <li><a href="index.html">(28)</a></li>
-                                            </ul>
-                                            <ul class="info clearfix">
-                                                <li><i class="far fa-clock"></i>4 months ago</li>
-                                                <li><i class="fas fa-map-marker-alt"></i>G87P, Birmingham, UK</li>
-                                            </ul>
-                                            <div class="lower-box">
-                                                <h5><span>Start From:</span> $3,000.00</h5>
-                                                <ul class="react-box">
-                                                    <li><a href="index.html"><i class="icon-21"></i></a></li>
-                                                    <li><a href="index.html"><i class="icon-22"></i></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
+
+
                         </div>
                     </div>
                 </div>

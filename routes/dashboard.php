@@ -6,6 +6,7 @@ use App\Http\Controllers\Dashboard\AdvertiserController;
 use App\Http\Controllers\Dashboard\CategoryController;
 use App\Http\Controllers\Dashboard\CountryController;
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Dashboard\PackageController;
 use App\Http\Controllers\Dashboard\PublisherController;
 use App\Http\Controllers\Dashboard\RolesController;
 use Illuminate\Support\Facades\Route;
@@ -121,4 +122,17 @@ Route::middleware(['auth:admin'])
         });
     // End Category Routes
 
+    // Start Package Routes
+    Route::controller(PackageController::class)
+        ->prefix('packages')
+        ->as('package.')
+        ->group(function() {
+            Route::get('/', 'index')->name('index');
+            Route::get('/create', 'create')->name('create');
+            Route::post('/', 'store')->name('store');
+            Route::get('/{id}/edit', 'edit')->name('edit');
+            Route::put('/{id}', 'update')->name('update');
+            Route::delete('/', 'destroy')->name('delete');
+        });
+    // End Package Routes
 });

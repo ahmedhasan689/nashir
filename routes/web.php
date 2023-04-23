@@ -57,7 +57,7 @@ Route::namespace('App\Http\Controllers\Web')
         ->as('ad.')
         ->group(function() {
             Route::get('/', 'index')->name('index');
-            Route::get('/{id}/{userId?}/{type?}', 'show')->name('show');
+            Route::get('/{id}/{userId?}/{type?}', 'show')->name('show')->middleware(['auth']);
         });
     // End Ads Route
 

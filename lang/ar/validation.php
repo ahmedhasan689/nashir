@@ -68,7 +68,7 @@ return [
     'image' => 'The :attribute must be an image.',
     'in' => 'The selected :attribute is invalid.',
     'in_array' => 'The :attribute field does not exist in :other.',
-    'integer' => 'The :attribute must be an integer.',
+    'integer' => ' :attribute يجب أن يكون رقماً.',
     'ip' => 'The :attribute must be a valid IP address.',
     'ipv4' => 'The :attribute must be a valid IPv4 address.',
     'ipv6' => 'The :attribute must be a valid IPv6 address.',
@@ -185,7 +185,12 @@ return [
         'email' => 'البريد الإلكتروني',
         'phone_number' => 'رقم الجوال',
         'confirmation_password' => 'كلمة المرور',
-        'last_name'
+        'last_name' => 'الاسم الأخير',
+        'views_number' => 'عدد المشاهدات',
+        'bonus_value' => 'قيمة المكافأة',
+        'name_ar' => 'الاسم باللغة العربية',
+        'name_en' => 'الاسم باللغة الإنجليزية',
+        'price' => 'السعر',
     ],
 
 ];
