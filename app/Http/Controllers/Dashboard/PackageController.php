@@ -49,6 +49,7 @@ class PackageController extends Controller
                 'views_number' => 'required|integer',
                 'bonus_value' => 'required|integer',
                 'price' => 'required|integer',
+                'duration' => 'required|integer',
             ],
         );
 
@@ -58,6 +59,7 @@ class PackageController extends Controller
             'views_number' => $request->views_number,
             'bonus_value' => $request->bonus_value,
             'price' => $request->price,
+            'duration' => $request->duration,
         ]);
 
         toastr()->success(__('lang.package_created'));
@@ -107,6 +109,7 @@ class PackageController extends Controller
                 'views_number' => 'required|integer',
                 'bonus_value' => 'required|integer',
                 'price' => 'required|integer',
+                'duration' => 'required|integer',
             ],
         );
 
@@ -116,6 +119,7 @@ class PackageController extends Controller
             'views_number' => $request->views_number,
             'bonus_value' => $request->bonus_value,
             'price' => $request->price,
+            'duration' => $request->duration,
         ]);
 
         toastr()->success(__('lang.package_updated'));

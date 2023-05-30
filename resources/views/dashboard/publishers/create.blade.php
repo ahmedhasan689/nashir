@@ -87,6 +87,29 @@
                                     </div>
                                 </div>
 
+                                <div class="col-xl-6 col-md-12 col-sm-12">
+                                    <div class="mb-10">
+                                        <label for="exampleFormControlInput1" class="required form-label">
+                                            {{ __('lang.package') }}
+                                        </label>
+                                        <select class="form-select form-select-solid @error('package_id') is-invalid @enderror" aria-label="Select example" name="package_id">
+                                            <option>
+                                                {{ __('lang.select_from') }}
+                                            </option>
+                                            @foreach( $packages as $package )
+                                                <option value="{{ $package->id }}">
+                                                    {{ app()->getLocale() === 'ar' ? $package->name_ar : $package->name_en }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                        @error('package_id')
+                                        <span class="text-danger">
+                                                {{ $message }}
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+
                             </div>
                             <div class="row">
                                 <div class="col-12 d-flex gap-2 justify-content-start">

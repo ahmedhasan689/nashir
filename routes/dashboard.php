@@ -3,12 +3,17 @@
 use App\Http\Controllers\Dashboard\AdminsController;
 use App\Http\Controllers\Dashboard\AdvertisementDashboardController;
 use App\Http\Controllers\Dashboard\AdvertiserController;
+use App\Http\Controllers\Dashboard\BlogsController;
 use App\Http\Controllers\Dashboard\CategoryController;
+use App\Http\Controllers\Dashboard\ContactUsController;
 use App\Http\Controllers\Dashboard\CountryController;
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Dashboard\LinksController;
 use App\Http\Controllers\Dashboard\PackageController;
 use App\Http\Controllers\Dashboard\PublisherController;
 use App\Http\Controllers\Dashboard\RolesController;
+use App\Http\Controllers\Dashboard\SettingsController;
+use App\Http\Controllers\Dashboard\TestimonialController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -135,4 +140,65 @@ Route::middleware(['auth:admin'])
             Route::delete('/', 'destroy')->name('delete');
         });
     // End Package Routes
+
+    // Start Contact Us Routes
+    Route::controller(ContactUsController::class)
+        ->prefix('contact_us')
+        ->as('contact_dashboard.')
+        ->group(function() {
+            Route::get('/', 'index')->name('index');
+            Route::post('/', 'store')->name('store');
+            Route::get('/delete-contact', 'destroy')->name('delete');
+        });
+    // End Contact Us Routes
+
+        // Start Testimonial Routes
+        Route::controller(TestimonialController::class)
+            ->prefix('testimonials')
+            ->as('testimonial.')
+            ->group(function() {
+                Route::get('/', 'index')->name('index');
+                Route::get('/create', 'create')->name('create');
+                Route::post('/', 'store')->name('store');
+                Route::get('/{id}/edit', 'edit')->name('edit');
+                Route::put('/{id}', 'update')->name('update');
+                Route::get('/delete-testimonial', 'destroy')->name('delete');
+                Route::get('/change-status', 'changeStatus')->name('changeStatus');
+            });
+        // End Testimonial Routes
+
+        // Start Blogs Routes
+        Route::controller(BlogsController::class)
+            ->prefix('blogs')
+            ->as('blog_dashboard.')
+            ->group(function() {
+                Route::get('/', 'index')->name('index');
+                Route::get('/create', 'create')->name('create');
+                Route::post('/', 'store')->name('store');
+                Route::get('/{id}/edit', 'edit')->name('edit');
+                Route::put('/{id}', 'update')->name('update');
+                Route::get('/delete-blog', 'destroy')->name('delete');
+            });
+        // End Blogs Routes
+
+        // Start Blogs Routes
+        Route::controller(SettingsController::class)
+            ->prefix('settings')
+            ->as('setting.')
+            ->group(function() {
+                Route::get('/', 'index')->name('index');
+                Route::get('/{id}/edit', 'edit')->name('edit');
+                Route::put('/{id}', 'update')->name('update');
+            });
+        // End Blogs Routes
+
+        // Start Blogs Routes
+        Route::controller(LinksController::class)
+            ->prefix('links')
+            ->as('link.')
+            ->group(function() {
+                Route::get('/', 'index')->name('index');
+                Route::get('/changeStatus', 'changeStatus')->name('changeStatus');
+            });
+        // End Blogs Routes
 });

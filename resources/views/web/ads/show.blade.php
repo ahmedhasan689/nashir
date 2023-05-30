@@ -35,14 +35,26 @@
                         <li class="share-option">
                             <a href="#" class="share-btn"><i class="fas fa-share-alt"></i></a>
                             <ul>
-                                <li>
-                                    <a id="facebookShare" href="#">
-                                        <i class="fab fa-facebook-f"></i>
-                                    </a>
-                                </li>
-                                <li><a id="telegramShare" href="#"><i class="fab fa-telegram"></i></a></li>
-                                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
-                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                @foreach( $links as $link )
+                                    <li>
+                                        <a id="shareBtn" href="{{ $link->value }}" data-type="{{ $link->type }}">
+                                            <i class="{{ $link->icon }}"></i>
+                                        </a>
+                                    </li>
+                                @endforeach
+
+{{--                                <li>--}}
+{{--                                    <a id="facebookShare" href="#">--}}
+{{--                                        <i class="fab fa-facebook-f"></i>--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
+{{--                                <li>--}}
+{{--                                    <a id="telegramShare" href="#">--}}
+{{--                                        <i class="fab fa-telegram"></i>--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
+{{--                                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>--}}
+{{--                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>--}}
                             </ul>
 
                         </li>
@@ -207,71 +219,6 @@
                                 {!! $ad->features !!}
                             </div>
                         </div>
-                        <div class="content-four single-box">
-                            <div class="text">
-                                <h3>Location</h3>
-                            </div>
-                            <div class="contact-map">
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d55945.16225505631!2d-73.90847969206546!3d40.66490264739892!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1601263396347!5m2!1sen!2sbd"></iframe>
-                            </div>
-                            <ul class="info-box clearfix">
-                                <li>
-                                    <span>Country:</span>
-                                    {{ $ad->country->name }}
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="content-five single-box">
-                            <div class="text">
-                                <h4>Leave a Review</h4>
-                                <p>Your email address will not be published. Required fields are marked *</p>
-                            </div>
-                            <form action="browse-add-details.html" method="post" class="review-form">
-                                <div class="row clearfix">
-                                    <div class="col-lg-6 col-md-6 col-sm-12 column">
-                                        <div class="form-group">
-                                            <label>Your Name*</label>
-                                            <input type="text" name="name" required="">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12 column">
-                                        <div class="form-group">
-                                            <label>Your Email*</label>
-                                            <input type="email" name="email" required="">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12 col-md-12 col-sm-12 column">
-                                        <div class="form-group">
-                                            <label>Review Title*</label>
-                                            <input type="text" name="title" required="">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12 col-md-12 col-sm-12 column">
-                                        <div class="form-group">
-                                            <label>Your Rating*</label>
-                                            <ul class="rating clearfix">
-                                                <li><i class="icon-32"></i></li>
-                                                <li><i class="icon-32"></i></li>
-                                                <li><i class="icon-32"></i></li>
-                                                <li><i class="icon-32"></i></li>
-                                                <li><i class="icon-32"></i></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12 col-md-12 col-sm-12 column">
-                                        <div class="form-group">
-                                            <label>Review Title*</label>
-                                            <textarea name="message"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12 col-md-12 col-sm-12 column">
-                                        <div class="form-group message-btn">
-                                            <button type="submit" class="theme-btn-one">Submit Now</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-12 col-sm-12 sidebar-side">
@@ -306,59 +253,50 @@
                                             <option value="4">Home Appliances</option>
                                         </select>
                                     </div>
+
                                 </form>
                             </div>
-                        </div>
-                        <div class="sidebar-category sidebar-widget">
-                            <div class="widget-title">
-                                <h3>Category</h3>
-                            </div>
-                            <div class="widget-content">
-                                <ul class="category-list">
-                                    <li><a href="category-details.html">All</a></li>
-                                    <li><a href="category-details.html">Air Condition</a></li>
-                                    <li class="dropdown">
-                                        <a href="category-details.html" class="current">Ellectronics</a>
-                                        <ul>
-                                            <li><a href="category-details.html">Computers</a></li>
-                                            <li><a href="category-details.html">Drones</a></li>
-                                            <li><a href="category-details.html">Phones</a></li>
-                                            <li><a href="category-details.html">Watches</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="category-details.html">Furniture</a></li>
-                                    <li class="dropdown">
-                                        <a href="category-details.html">Health & Beauty</a>
-                                        <ul>
-                                            <li><a href="category-details.html">Spa</a></li>
-                                            <li><a href="category-details.html">Messages</a></li>
-                                            <li><a href="category-details.html">Fitness</a></li>
-                                            <li><a href="category-details.html">Injuries</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="category-details.html">Automotive</a></li>
-                                    <li><a href="category-details.html">Real Estate</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="price-filter sidebar-widget">
-                            <div class="widget-title">
-                                <h3>Pricing range</h3>
-                            </div>
-                            <div class="price-range">
-                                <div class="row clearfix">
-                                    <div class="col-lg-6 col-md-12 col-sm-12 form-group">
-                                        <input type="text" name="min_price" placeholder="Min">
-                                    </div>
-                                    <div class="col-lg-6 col-md-12 col-sm-12 form-group">
-                                        <input type="text" name="max_price" placeholder="Max">
-                                    </div>
-                                    <div class="col-lg-12 col-md-12 col-sm-12 form-group">
-                                        <button type="submit" class="theme-btn-one">Apply price</button>
-                                    </div>
+
+                            <div class="sidebar-category sidebar-widget mt-5">
+                                <div class="widget-title">
+                                    <h3>Category</h3>
                                 </div>
+                                <div class="widget-content">
+                                    <ul class="category-list">
+                                        <li><a href="category-details.html">All</a></li>
+                                        <li><a href="category-details.html">Air Condition</a></li>
+                                        <li class="dropdown">
+                                            <a href="category-details.html" class="current">Ellectronics</a>
+                                            <ul>
+                                                <li><a href="category-details.html">Computers</a></li>
+                                                <li><a href="category-details.html">Drones</a></li>
+                                                <li><a href="category-details.html">Phones</a></li>
+                                                <li><a href="category-details.html">Watches</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="category-details.html">Furniture</a></li>
+                                        <li class="dropdown">
+                                            <a href="category-details.html">Health & Beauty</a>
+                                            <ul>
+                                                <li><a href="category-details.html">Spa</a></li>
+                                                <li><a href="category-details.html">Messages</a></li>
+                                                <li><a href="category-details.html">Fitness</a></li>
+                                                <li><a href="category-details.html">Injuries</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="category-details.html">Automotive</a></li>
+                                        <li><a href="category-details.html">Real Estate</a></li>
+                                    </ul>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                <button type="submit" class="theme-btn-one">Apply</button>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -715,21 +653,16 @@
         </script>
 
         <script>
-            $(document).on('click', '#facebookShare', function(e) {
+            $(document).on('click', '#shareBtn', function(e) {
                 e.preventDefault();
 
-                shareDirection('Facebook');
+                let type = $(this).data('type'),
+                    url = '{{ route('ad.show', ['id' => $ad->id, 'userId' => auth()->user()->id, 'type' => ':type' ]) }}'
 
-                window.location = 'https://www.facebook.com/sharer/sharer.php?u={{ route("ad.show", ['id' => $ad->id, 'userId' => auth()->user()->id, 'type' => 'Facebook']) }}';
-            })
+                shareDirection(type);
 
-            $(document).on('click', '#telegramShare', function(e) {
-                e.preventDefault();
-
-                // Here
-                shareDirection('Telegram');
-
-                window.location = 'https://telegram.me/share/url?type=tele&url={{ route("ad.show", ['id' => $ad->id, 'userId' => auth()->user()->id, 'type' => 'Telegram']) }}'
+                url = url.replace(':type', type);
+                window.location = $(this).attr('href')+url;
             });
 
             function shareDirection(type) {

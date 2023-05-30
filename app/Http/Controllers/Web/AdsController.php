@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Advertisement;
 use App\Models\Category;
 use App\Models\Country;
+use App\Models\Link;
 use App\Models\User;
 use App\Models\Visitor;
 use Illuminate\Contracts\Foundation\Application;
@@ -72,9 +73,9 @@ class AdsController extends Controller
             ]);
         }
 
-        $share = new Share();
+        $links = Link::query()->where('status', 1)->get();
 
-        return view('web.ads.show', compact('ad'));
+        return view('web.ads.show', compact('ad', 'links'));
     }
 
     /**

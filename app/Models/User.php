@@ -29,6 +29,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'phone_verified_at',
         'user_type',
         'password',
+        'package_id',
     ];
 
     /**
@@ -52,7 +53,8 @@ class User extends Authenticatable implements MustVerifyEmail
 
     /**
      * ! Relations
-     *  ? With Advertisement ( Many Publisher Has Many Share )
+     * ? With Advertisement ( Many Publisher Has Many Share )
+     * ? With Package ( One User Belongs To One Package )
      */
 
     /**
@@ -63,5 +65,13 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->belongsToMany(Advertisement::class, 'shares', 'advertisement_id', 'user_id')
             ->as('shares');
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function package(): BelongsTo
+    {
+        return $this->belongsTo(Package::class, 'package_id');
     }
 }

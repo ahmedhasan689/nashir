@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Models\Package;
+use App\Models\PackageUser;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -11,6 +14,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class AdvertiserController extends Controller
@@ -38,7 +42,8 @@ class AdvertiserController extends Controller
      */
     public function create()
     {
-        return view('dashboard.advertisers.create');
+        $packages = Package::query()->get();
+        return view('dashboard.advertisers.create', compact('packages'));
     }
 
     /**
@@ -55,17 +60,40 @@ class AdvertiserController extends Controller
             'email' => 'required|email',
             'phone_number' => 'required|numeric',
             'password' => 'required|min:8',
+            'package_id' => 'required|exists:packages,id',
         ]);
 
         $input = $request->all();
 
         $input['password'] = Hash::make($input['password']);
 
-        User::create($input);
+        DB::beginTransaction();
 
-        toastr()->success('Advertiser Created Successfully');
+        $package = Package::query()->findOrFail($request->package_id);
 
-        return redirect()->route('advertiser.index');
+        $ends_at = Carbon::now()->addMonths($package->duration)->format('Y-m-d H:i:s');
+
+        try{
+            $user = User::create($input);
+
+            PackageUser::create([
+                'user_id' => $user->id,
+                'package_id' => $package->id,
+                'ends_at' => $ends_at,
+            ]);
+
+            DB::commit();
+
+            toastr()->success('Advertiser Created Successfully');
+
+            return redirect()->route('advertiser.index');
+        }catch (\Exception $e){
+            DB::rollBack();
+
+            return redirect()->back()->with($e);
+        }
+
+
     }
 
     /**
@@ -87,9 +115,10 @@ class AdvertiserController extends Controller
      */
     public function edit($id)
     {
-        $advertiser = User::query()->findOrFail($id);
+        $advertiser = User::query()->with('package')->findOrFail($id);
+        $packages = Package::query()->get();
 
-        return view('dashboard.advertisers.edit', compact('advertiser'));
+        return view('dashboard.advertisers.edit', compact('advertiser', 'packages'));
     }
 
     /**
@@ -97,7 +126,7 @@ class AdvertiserController extends Controller
      *
      * @param Request $request
      * @param  int  $id
-     * @return Response
+     * @return RedirectResponse
      */
     public function update(Request $request, $id)
     {
@@ -109,6 +138,7 @@ class AdvertiserController extends Controller
             'email' => 'required|email',
             'phone_number' => 'required|numeric',
             'password' => 'nullable|min:8',
+            'package_id' => 'required|exists:packages,id',
         ]);
 
         $input = $request->all();
@@ -119,11 +149,39 @@ class AdvertiserController extends Controller
             $input = Arr::except($input,array('password'));
         }
 
-        $advertiser->update($input);
+        DB::beginTransaction();
 
-        toastr()->success('Advertiser Updated Successfully');
+        try {
+            $advertiser->update($input);
 
-        return redirect()->route('advertiser.index');
+            $package = Package::query()->findOrFail($request->package_id);
+
+            $ends_at = Carbon::now()->addMonths($package->duration)->format('Y-m-d H:i:s');
+
+            PackageUser::updateOrCreate(
+                [
+                    'user_id' => $advertiser->id,
+                ],[
+                    'user_id' => $advertiser->id,
+                    'package_id' => $input['package_id'],
+                    'ends_at' =>  $ends_at,
+                ]
+            );
+
+            DB::commit();
+
+            toastr()->success('Advertiser Updated Successfully');
+
+            return redirect()->route('advertiser.index');
+
+        }catch (\Exception $e) {
+            DB::rollBack();
+
+            return redirect()->back()->with($e);
+        }
+
+
+
     }
 
     /**

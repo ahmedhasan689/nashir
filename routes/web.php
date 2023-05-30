@@ -4,6 +4,7 @@ use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Web\AdsController;
 use App\Http\Controllers\Web\CategoriesController;
 use App\Http\Controllers\Web\HomeController;
+use App\Http\Controllers\Web\PagesController;
 use App\Http\Controllers\Web\ShareController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -30,46 +31,56 @@ require __DIR__ . '/user.php';
 
 
 // Start Index Dashboard
-Route::get(LaravelLocalization::setLocale().'/dashboard', [DashboardController::class, 'index'])
+Route::get(LaravelLocalization::setLocale() . '/dashboard', [DashboardController::class, 'index'])
     ->middleware(['auth:admin,web'])
     ->name('dashboard.home');
 // End Index Dashboard
 
 Route::namespace('App\Http\Controllers\Web')
     ->prefix(LaravelLocalization::setLocale())
-    ->group(function() {
+    ->group(function () {
 
-    Route::get('/', [HomeController::class, 'index'])->name('home');
+        Route::get('/', [HomeController::class, 'index'])->name('home');
 
-    // Start Category Route
-    Route::controller(CategoriesController::class)
-        ->prefix('categories')
-        ->as('category.')
-        ->group(function() {
-            Route::get('/', 'index')->name('index');
-            Route::get('/{id}', 'show')->name('show');
-        });
-    // End Category Route
+        // Start Category Route
+        Route::controller(CategoriesController::class)
+            ->prefix('categories')
+            ->as('category.')
+            ->group(function () {
+                Route::get('/', 'index')->name('index');
+                Route::get('/{id}', 'show')->name('show');
+            });
+        // End Category Route
 
-    // Start Ads Route
-    Route::controller(AdsController::class)
-        ->prefix('ads')
-        ->as('ad.')
-        ->group(function() {
-            Route::get('/', 'index')->name('index');
-            Route::get('/{id}/{userId?}/{type?}', 'show')->name('show')->middleware(['auth']);
-        });
-    // End Ads Route
+        // Start Ads Route
+        Route::controller(AdsController::class)
+            ->prefix('ads')
+            ->as('ad.')
+            ->group(function () {
+                Route::get('/', 'index')->name('index');
+                Route::get('/{id}/{userId?}/{type?}', 'show')->name('show')->middleware(['auth']);
+            });
+        // End Ads Route
 
-    // Start Share Route
-    Route::controller(ShareController::class)
-        ->prefix('shares')
-        ->as('share.')
-        ->group(function() {
-            Route::get('/', 'index')->name('index');
-            Route::get('/store', 'store')->name('store');
-            Route::get('/{id}/{type}', 'show')->name('show');
-        });
-    // End Share Route
+        // Start Share Route
+        Route::controller(ShareController::class)
+            ->prefix('shares')
+            ->as('share.')
+            ->group(function () {
+                Route::get('/', 'index')->name('index');
+                Route::get('/store', 'store')->name('store');
+                Route::get('/{id}/{type}', 'show')->name('show');
+            });
+        // End Share Route
 
-});
+        // Start Pages Route
+        Route::controller(PagesController::class)
+            ->as('page.')
+            ->group(function() {
+                Route::get('/packages', 'packagePage')->name('package');
+                Route::get('/contact_us', 'contactUs')->name('contactUs');
+                Route::get('/about_us', 'aboutUs')->name('aboutUs');
+            });
+        // End Pages Route
+
+    });

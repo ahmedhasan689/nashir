@@ -230,7 +230,7 @@ img {
   text-align: center;
   padding: 12px 29px;
   border-radius: 30px;
-  box-shadow: 0px 10px 30px 0px rgba(248,92,112,0.4);
+  box-shadow: 0px 10px 30px 0px rgba(6,30,92,0.4);
   z-index: 1;
   transition: all 500ms ease;
 }
@@ -2300,8 +2300,8 @@ div#mCSB_1_container{
   width: 80px;
   content: "";
   border-radius: 30px;
-  background-color: #ffebed;
-  border: 1px solid #f7c6cc;
+  background-color: rgba(6,30,92,0.4);
+  /*border: 1px solid #061e5c;*/
 }
 
 .tabs-box .tab-btn-box .tab-btns li{
@@ -5986,7 +5986,7 @@ div#mCSB_1_container{
   left: 3px;
   top: 6px;
   border-radius: 50%;
-  box-shadow: 0px 0px 0px 3px rgba(248,92,112,0.4);
+  box-shadow: 0px 0px 0px 3px rgba(6,30,92,0.4);
 }
 
 .faq-section .sec-title{
@@ -6656,7 +6656,7 @@ div#mCSB_1_container{
 
 .blog-sidebar .tags-widget .tags-list li a:hover{
   color: #fff;
-  box-shadow: 0px 10px 30px 0px rgba(248,92,112,0.4);
+  box-shadow: 0px 10px 30px 0px rgba(6,30,92,0.4);
 }
 
 .blog-sidebar .tags-widget{

@@ -57,6 +57,20 @@
                                 <div class="col-xl-6 col-md-12 col-sm-12">
                                     <div class="mb-10">
                                         <label for="exampleFormControlInput1" class="required form-label">
+                                            {{ __('lang.duration') . ' ' . "( " . __('lang.in_months') . " )" }}
+                                        </label>
+                                        <input type="text" name="duration" value="{{ $package->duration }}" class="form-control form-control-solid @error('duration') is-invalid @enderror" placeholder="{{ __('lang.enter_duration') }}"/>
+                                        @error('duration')
+                                            <span class="text-danger">
+                                                {{ $message }}
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-6 col-md-12 col-sm-12">
+                                    <div class="mb-10">
+                                        <label for="exampleFormControlInput1" class="required form-label">
                                             {{ __('lang.views_number') }}
                                         </label>
                                         <input type="text" name="views_number" value="{{ $package->views_number }}" class="form-control form-control-solid @error('views_number') is-invalid @enderror" placeholder="{{ __('lang.enter_views_number') }}"/>

@@ -3,13 +3,17 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Models\Package;
+use App\Models\PackageUser;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class PublisherController extends Controller
@@ -37,7 +41,9 @@ class PublisherController extends Controller
      */
     public function create()
     {
-        return view('dashboard.publishers.create');
+        $packages = Package::query()->get();
+
+        return view('dashboard.publishers.create', compact('packages'));
     }
 
     /**
@@ -54,17 +60,41 @@ class PublisherController extends Controller
             'email' => 'required|email',
             'phone_number' => 'required|numeric',
             'password' => 'required|min:8',
+            'package_id' => 'required|exists:packages,id',
         ]);
 
         $input = $request->all();
 
         $input['password'] = Hash::make($input['password']);
 
-        User::create($input);
+        DB::beginTransaction();
 
-        toastr()->success('Publisher Created Successfully');
+        try{
+            $user = User::create($input);
 
-        return redirect()->route('publisher.index');
+            $package = Package::query()->findOrFail($request->package_id);
+
+            $ends_at = Carbon::now()->addMonths($package->duration)->format('Y-m-d H:i:s');
+
+            PackageUser::create([
+                'user_id' => $user->id,
+                'package_id' => $package->id,
+                'ends_at' => $ends_at,
+            ]);
+
+            DB::commit();
+
+            toastr()->success('Publisher Created Successfully');
+
+            return redirect()->route('publisher.index');
+
+        }catch (\Exception $e){
+            DB::rollBack();
+
+            return redirect()->back()->with($e);
+        }
+
+
     }
 
     /**
@@ -87,8 +117,9 @@ class PublisherController extends Controller
     public function edit($id)
     {
         $publisher = User::findOrFail($id);
+        $packages = Package::query()->get();
 
-        return view('dashboard.publishers.edit', compact('publisher'));
+        return view('dashboard.publishers.edit', compact('publisher', 'packages'));
     }
 
     /**
@@ -118,11 +149,38 @@ class PublisherController extends Controller
             $input = Arr::except($input,array('password'));
         }
 
-        $publisher->update($input);
+        DB::beginTransaction();
 
-        toastr()->success('Publisher Updated Successfully');
+        try {
 
-        return redirect()->route('publisher.index');
+            $publisher->update($input);
+
+            $package = Package::query()->findOrFail($request->package_id);
+
+            $ends_at = Carbon::now()->addMonths($package->duration)->format('Y-m-d H:i:s');
+
+            PackageUser::updateOrCreate(
+                [
+                    'user_id' => $publisher->id,
+                ],[
+                    'user_id' => $publisher->id,
+                    'package_id' => $input['package_id'],
+                    'ends_at' =>  $ends_at,
+                ]
+            );
+
+            DB::commit();
+
+            toastr()->success('Publisher Updated Successfully');
+
+            return redirect()->route('publisher.index');
+
+        }catch (\Exception $e) {
+            DB::rollBack();
+
+            return redirect()->back()->with($e);
+        }
+
     }
 
     /**

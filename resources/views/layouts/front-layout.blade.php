@@ -32,7 +32,7 @@
         <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
     @endif
     <link href="{{ asset('assets/css/responsive.css') }}" rel="stylesheet">
-
+    @yield('css')
 </head>
 
 
@@ -40,12 +40,6 @@
 <body>
 
 <div class="boxed_wrapper @if( app()->getLocale() == 'ar' ) rtl @endif">
-
-
-{{--    <!-- preloader -->--}}
-{{--    <div class="preloader"></div>--}}
-{{--    <!-- preloader -->--}}
-
 
     <!-- main header -->
     <header class="main-header style-three">
@@ -57,7 +51,7 @@
                     <div class="logo-box">
                         <figure class="logo">
                             <a href="{{ route('home') }}">
-                                <img src="{{ asset('assets/images/logo-2.png') }}" alt="">
+                                <img src="{{ asset('storage') . '/' . $setting->where('key', 'avatar')->first()->value }}" style="height: 65px !important;" alt="">
                             </a>
                         </figure>
                     </div>
@@ -83,61 +77,12 @@
                                     </li>
                                     <li>
                                         <a href="{{ route('ad.index') }}">
-                                            Browse Ads
+                                            {{ __('lang.browse_ads') }}
                                         </a>
                                     </li>
-                                    <li class="dropdown">
+                                    <li>
                                         <a href="#">
-                                            Pages
-                                        </a>
-                                        <ul>
-                                            <li><a href="#">About Us</a></li>
-                                            <li><a href="#">Our Stores</a></li>
-                                            <li><a href="#">Stores Details</a></li>
-                                            <li><a href="#">Faq'S</a></li>
-                                            <li><a href="#">Pricing Table</a></li>
-                                            <li><a href="#">Login Page</a></li>
-                                            <li><a href="#">Signup Page</a></li>
-                                            <li><a href="#">Contact Us</a></li>
-                                            <li><a href="#">404</a></li>
-                                        </ul>
-                                    </li>
-{{--                                    <li class="dropdown">--}}
-{{--                                        <a href="#">Elements</a>--}}
-{{--                                        <div class="megamenu">--}}
-{{--                                            <div class="row clearfix">--}}
-{{--                                                <div class="col-xl-6 column">--}}
-{{--                                                    <ul>--}}
-{{--                                                        <li><h4>Elements 1</h4></li>--}}
-{{--                                                        <li><a href="about-element.html">About Block</a></li>--}}
-{{--                                                        <li><a href="category-element-1.html">Category Block 01</a></li>--}}
-{{--                                                        <li><a href="category-element-2.html">Category Block 02</a></li>--}}
-{{--                                                        <li><a href="#">Category Block 03</a></li>--}}
-{{--                                                        <li><a href="#">Place Block 01</a></li>--}}
-{{--                                                        <li><a href="#">Place Block 02</a></li>--}}
-{{--                                                        <li><a href="#">News Block 01</a></li>--}}
-{{--                                                        <li><a href="#">News Block 02</a></li>--}}
-{{--                                                    </ul>--}}
-{{--                                                </div>--}}
-{{--                                                <div class="col-xl-6 column">--}}
-{{--                                                    <ul>--}}
-{{--                                                        <li><h4>Elements 2</h4></li>--}}
-{{--                                                        <li><a href="feature-element-1.html">Feature Block 01</a></li>--}}
-{{--                                                        <li><a href="feature-element-2.html">Feature Block 02</a></li>--}}
-{{--                                                        <li><a href="Process-element-1.html">Process Block 01</a></li>--}}
-{{--                                                        <li><a href="Process-element-2.html">Process Block 02</a></li>--}}
-{{--                                                        <li><a href="testimonial-element.html">Testimonial Block</a></li>--}}
-{{--                                                        <li><a href="clients-element.html">Clients Block</a></li>--}}
-{{--                                                        <li><a href="newsletter-element.html">Newsletter Block</a></li>--}}
-{{--                                                        <li><a href="chooseus-element.html">Chooseus Block</a></li>--}}
-{{--                                                    </ul>--}}
-{{--                                                </div>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </li>--}}
-                                    <li class="dropdown">
-                                        <a href="#">
-                                            Blog
+                                            {{ __('lang.blog') }}
                                         </a>
                                     </li>
                                     <li>
@@ -158,7 +103,7 @@
                     <div class="btn-box">
                         <a href="{{ route('login') }}" class="theme-btn-one">
                             <i class="icon-1"></i>
-                            Login
+                            {{ __('lang.login') }}
                         </a>
                     </div>
                 </div>
@@ -170,7 +115,9 @@
             <div class="auto-container">
                 <div class="outer-box">
                     <div class="logo-box">
-                        <figure class="logo"><a href="index.html"><img src="assets/images/logo.png" alt=""></a></figure>
+                        <figure class="logo">
+                            <a href="{{ route('home') }}">
+                                <img src="{{ asset('storage') . '/' . $setting->where('key', 'avatar')->first()->value }}" style="height: 65px !important;" alt=""></a></figure>
                     </div>
                     <div class="menu-area">
                         <nav class="main-menu clearfix">
@@ -227,32 +174,54 @@
                     <div class="row clearfix">
                         <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
                             <div class="footer-widget logo-widget">
-                                <figure class="footer-logo"><a href="index.html"><img src="assets/images/footer-logo.png" alt=""></a></figure>
+                                <figure class="footer-logo">
+                                    <a href="{{ route('home') }}">
+                                        <img src="{{ asset('storage') . '/' . $setting->where('key', 'avatar')->first()->value }}" alt="">
+                                    </a>
+                                </figure>
                                 <div class="text">
-                                    <p>Lorem ipsum dolor amet consetetur adi pisicing elit sed eiusm tempor in cididunt ut labore dolore magna aliqua enim ad minim venitam</p>
+                                    <p>
+                                        {{ $setting->where('key', 'footer_description')->first()->value }}
+                                    </p>
                                 </div>
                                 <ul class="social-links clearfix">
-                                    <li><a href="index.html"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="index.html"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="index.html"><i class="fab fa-instagram"></i></a></li>
-                                    <li><a href="index.html"><i class="fab fa-google-plus-g"></i></a></li>
-                                    <li><a href="index.html"><i class="fab fa-linkedin-in"></i></a></li>
+                                    <li><a href="{{ $setting->where('key', 'facebook_link')->first()->value }}"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="{{ $setting->where('key', 'twitter_link')->first()->value }}"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="{{ $setting->where('key', 'instagram_link')->first()->value }}"><i class="fab fa-instagram"></i></a></li>
+                                    <li><a href="{{ $setting->where('key', 'google_link')->first()->value }}"><i class="fab fa-google-plus-g"></i></a></li>
+                                    <li><a href="{{ $setting->where('key', 'linkedin_link')->first()->value }}"><i class="fab fa-linkedin-in"></i></a></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
                             <div class="footer-widget links-widget ml-70">
                                 <div class="widget-title">
-                                    <h3>Services</h3>
+                                    <h3>
+                                        {{ __('lang.services') }}
+                                    </h3>
                                 </div>
                                 <div class="widget-content">
                                     <ul class="links-list clearfix">
-                                        <li><a href="index.html">About Us</a></li>
-                                        <li><a href="index.html">Listing</a></li>
-                                        <li><a href="index.html">How It Works</a></li>
-                                        <li><a href="index.html">Our Services</a></li>
-                                        <li><a href="index.html">Our Blog</a></li>
-                                        <li><a href="index.html">Contact Us</a></li>
+                                        <li>
+                                            <a href="{{ route('page.aboutUs') }}">
+                                                {{ __('lang.about_us') }}
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('page.package') }}">
+                                                {{ __('lang.packages') }}
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                {{ __('lang.our_blog') }}
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('page.contactUs') }}">
+                                                {{ __('lang.contact_us') }}
+                                            </a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -260,7 +229,9 @@
                         <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
                             <div class="footer-widget post-widget">
                                 <div class="widget-title">
-                                    <h3>Top News</h3>
+                                    <h3>
+                                        {{ __('lang.top_news') }}
+                                    </h3>
                                 </div>
                                 <div class="post-inner">
                                     <div class="post">
@@ -285,21 +256,27 @@
                         <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
                             <div class="footer-widget contact-widget">
                                 <div class="widget-title">
-                                    <h3>Contacts</h3>
+                                    <h3>
+                                        {{ __('lang.contacts') }}
+                                    </h3>
                                 </div>
                                 <div class="widget-content">
                                     <ul class="info-list clearfix">
                                         <li>
                                             <i class="fas fa-map-marker-alt"></i>
-                                            Flat 20, Reynolds Neck, North Helenaville, FV77 8WS
+                                            {{ $setting->where('key', 'address')->first()->value }}
                                         </li>
                                         <li>
                                             <i class="fas fa-microphone"></i>
-                                            <a href="tel:23055873407">+2(305) 587-3407</a>
+                                            <a href="tel:23055873407">
+                                                {{ $setting->where('key', 'phone')->first()->value }}
+                                            </a>
                                         </li>
                                         <li>
                                             <i class="fas fa-envelope"></i>
-                                            <a href="mailto:info@example.com">info@example.com</a>
+                                            <a href="mailto:info@example.com">
+                                                {{ $setting->where('key', 'email')->first()->value }}
+                                            </a>
                                         </li>
                                     </ul>
                                 </div>
