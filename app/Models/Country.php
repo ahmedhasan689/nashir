@@ -29,4 +29,9 @@ class Country extends Model
         });
     }
 
+    public function advertisements()
+    {
+        return $this->hasMany(Advertisement::class, 'country_id');
+    }
+
 }

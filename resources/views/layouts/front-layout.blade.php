@@ -81,7 +81,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <a href="{{ route('blog.index') }}">
                                             {{ __('lang.blog') }}
                                         </a>
                                     </li>
@@ -141,23 +141,25 @@
         <div class="close-btn"><i class="fas fa-times"></i></div>
 
         <nav class="menu-box">
-            <div class="nav-logo"><a href="index.html"><img src="assets/images/logo-2.png" alt="" title=""></a></div>
+            <div class="nav-logo"><a href="{{ route('home') }}"><img src="{{ asset('storage') . '/' . $setting->where('key', 'avatar')->first()->value }}" alt="" title=""></a></div>
             <div class="menu-outer"><!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header--></div>
             <div class="contact-info">
-                <h4>Contact Info</h4>
+                <h4>
+                    {{ __('lang.contact') }}
+                </h4>
                 <ul>
-                    <li>Chicago 12, Melborne City, USA</li>
-                    <li><a href="tel:+8801682648101">+88 01682648101</a></li>
-                    <li><a href="mailto:info@example.com">info@example.com</a></li>
+                    <li>{{ $setting->where('key', 'address')->first()->value }}</li>
+                    <li><a href="tel:+8801682648101">{{ $setting->where('key', 'phone')->first()->value }}</a></li>
+                    <li><a href="mailto:info@example.com">{{ $setting->where('key', 'email')->first()->value }}</a></li>
                 </ul>
             </div>
             <div class="social-links">
                 <ul class="clearfix">
-                    <li><a href="index.html"><span class="fab fa-twitter"></span></a></li>
-                    <li><a href="index.html"><span class="fab fa-facebook-square"></span></a></li>
-                    <li><a href="index.html"><span class="fab fa-pinterest-p"></span></a></li>
-                    <li><a href="index.html"><span class="fab fa-instagram"></span></a></li>
-                    <li><a href="index.html"><span class="fab fa-youtube"></span></a></li>
+                    <li><a href="{{ $setting->where('key', 'twitter_link')->first()->value }}"><span class="fab fa-twitter"></span></a></li>
+                    <li><a href="{{ $setting->where('key', 'facebook_link')->first()->value }}"><span class="fab fa-facebook-square"></span></a></li>
+                    <li><a href="{{ $setting->where('key', 'google_link')->first()->value }}"><span class="fab fa-google-plus-g"></span></a></li>
+                    <li><a href="{{ $setting->where('key', 'instagram_link')->first()->value }}"><span class="fab fa-instagram"></span></a></li>
+                    <li><a href="{{ $setting->where('key', 'linkedin_link')->first()->value }}"><span class="fab fa-linkedin-in"></span></a></li>
                 </ul>
             </div>
         </nav>
@@ -168,7 +170,7 @@
 
     <!-- main-footer -->
     <footer class="main-footer">
-        <div class="footer-top" style="background-image: url(assets/images/background/footer-1.jpg);">
+        <div class="footer-top" style="background-image: url({{ asset('assets/images/background/footer-1.jpg') }});">
             <div class="auto-container">
                 <div class="widget-section">
                     <div class="row clearfix">
@@ -213,7 +215,7 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
+                                            <a href="{{ route('blog.index') }}">
                                                 {{ __('lang.our_blog') }}
                                             </a>
                                         </li>
@@ -234,22 +236,22 @@
                                     </h3>
                                 </div>
                                 <div class="post-inner">
-                                    <div class="post">
-                                        <figure class="post-thumb">
-                                            <img src="assets/images/resource/footer-post-1.jpg" alt="">
-                                            <a href="blog-details.html"><i class="fas fa-link"></i></a>
-                                        </figure>
-                                        <h5><a href="blog-details.html">The Added Value Social Worker</a></h5>
-                                        <p>Mar 25, 2020</p>
-                                    </div>
-                                    <div class="post">
-                                        <figure class="post-thumb">
-                                            <img src="assets/images/resource/footer-post-2.jpg" alt="">
-                                            <a href="blog-details.html"><i class="fas fa-link"></i></a>
-                                        </figure>
-                                        <h5><a href="blog-details.html">Ways to Increase Trust</a></h5>
-                                        <p>Mar 24, 2020</p>
-                                    </div>
+                                    @foreach( $latest_blogs as $latest_blog )
+                                        <div class="post">
+                                            <figure class="post-thumb">
+                                                <img src="{{ asset('storage') . '/' . $latest_blog->cover_image }}" alt="">
+                                                <a href="{{ route('blog.index') }}"><i class="fas fa-link"></i></a>
+                                            </figure>
+                                            <h5>
+                                                <a href="{{ route('blog.index') }}">
+                                                    {{ (app()->getLocale() == 'ar') ? $latest_blog->title_ar : $latest_blog->title_en }}
+                                                </a>
+                                            </h5>
+                                            <p> {{ \Carbon\Carbon::parse($latest_blog->created_at)->isoFormat('MMMM DD, YYYY') }}
+
+                                            </p>
+                                        </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>

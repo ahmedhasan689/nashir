@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Models\Advertisement;
 use App\Models\Category;
 use App\Models\Country;
 use Illuminate\Contracts\Foundation\Application;
@@ -26,6 +27,11 @@ class CategoriesController extends Controller
 
     public function show($id)
     {
-        //
+        $ads = Advertisement::query()->where('category_id', $id)->paginate(10);
+
+        $categories = Category::query()->where('status', 1)->get();
+        $countries = Country::query()->where('status', 1)->get();
+
+        return view('web.ads.index', compact('ads', 'countries', 'categories'));
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use App\Models\Blog;
 use App\Models\Setting;
 use Illuminate\View\Component;
 
@@ -26,6 +27,7 @@ class FrontLayout extends Component
     public function render()
     {
         $setting = Setting::all();
-        return view('layouts.front-layout', compact('setting'));
+        $latest_blogs = Blog::query()->orderByDesc('created_at')->limit(2)->get();
+        return view('layouts.front-layout', compact('setting', 'latest_blogs'));
     }
 }

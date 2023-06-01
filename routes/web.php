@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Web\AdsController;
+use App\Http\Controllers\Web\BlogController;
 use App\Http\Controllers\Web\CategoriesController;
 use App\Http\Controllers\Web\HomeController;
 use App\Http\Controllers\Web\PagesController;
@@ -41,6 +42,7 @@ Route::namespace('App\Http\Controllers\Web')
     ->group(function () {
 
         Route::get('/', [HomeController::class, 'index'])->name('home');
+        Route::post('/search', [HomeController::class, 'search'])->name('home.search');
 
         // Start Category Route
         Route::controller(CategoriesController::class)
@@ -82,5 +84,14 @@ Route::namespace('App\Http\Controllers\Web')
                 Route::get('/about_us', 'aboutUs')->name('aboutUs');
             });
         // End Pages Route
+        Route::controller(BlogController::class)
+            ->prefix('blogs')
+            ->as('blog.')
+            ->group(function() {
+                Route::get('/', 'index')->name('index');
+                Route::get('/{id}', 'show')->name('show');
+                Route::post('/search', 'search')->name('search');
+            });
+        // Start Blog Route
 
     });

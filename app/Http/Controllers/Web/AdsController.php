@@ -26,7 +26,7 @@ class AdsController extends Controller
      */
     public function index()
     {
-        $ads = Advertisement::query()->where('status', 'accepted')->get();
+        $ads = Advertisement::query()->where('status', 'accepted')->paginate(10);
         $categories = Category::query()->where('status', 1)->get();
         $countries = Country::query()->where('status', 1)->get();
 
